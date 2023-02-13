@@ -1,0 +1,3 @@
+[submodule "vendor/colonyNetwork"]
+	path = vendor/colonyNetwork
+	url = https://github.com/JoinColony/colonyNetwork.git
