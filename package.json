@@ -1,13 +1,13 @@
 {
     "name": "@colony/abis",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "files": [
         "dist",
         "LICENSE",
         "README.md"
     ],
     "exports": {
-        "./*": "./dist/"
+        "./*": "./dist/*"
     },
     "license": "GPL-3.0-only",
     "engines": {
