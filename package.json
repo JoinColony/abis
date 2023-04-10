@@ -1,8 +1,8 @@
 {
   "name": "@colony/abis",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "files": [
-    "abis",
+    "dist",
     "LICENSE",
     "README.md"
   ],
