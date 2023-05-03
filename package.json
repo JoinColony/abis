@@ -1,14 +1,19 @@
 {
     "name": "@colony/abis",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "files": [
         "dist",
         "LICENSE",
         "README.md"
     ],
+    "exports": {
+        "default": "./dist/versions.json"
+    },
+    "main": "./dist/versions.json",
+    "module": "./dist/versions.json",
     "license": "GPL-3.0-only",
     "engines": {
-        "node": "^16.14",
+        "node": "^16",
         "npm": "^8"
     },
     "scripts": {
