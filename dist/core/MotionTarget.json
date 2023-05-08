@@ -1,5 +1,5 @@
 {
-    "contractName": "GetCapabilityRoles",
+    "contractName": "MotionTarget",
     "abi": [
         {
             "inputs": [
