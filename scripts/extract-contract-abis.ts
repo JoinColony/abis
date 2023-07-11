@@ -8,7 +8,7 @@ import fg from 'fast-glob';
 import { sync as mkdirpSync } from 'mkdirp';
 import _ from 'lodash';
 
-const LATEST_TAG = 'glwss3';
+const LATEST_TAG = 'glwss4';
 
 const DEPLOY_CONTRACTS = ['MetaTxToken', 'TokenAuthority'];
 
