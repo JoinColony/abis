@@ -7,7 +7,8 @@
         "README.md"
     ],
     "exports": {
-        "default": "./dist/versions.json"
+        "default": "./dist/versions.json",
+        "./*": "./dist/*.json"
     },
     "main": "./dist/versions.json",
     "module": "./dist/versions.json",
