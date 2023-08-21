@@ -10,7 +10,7 @@
     "strict": true,
     "target": "es6",
     "types": ["node", "jest"],
-    "rootDir": "./scripts"
+    "rootDir": "./"
   },
   "include": ["scripts/**/*"],
   "exclude": ["node_modules"]

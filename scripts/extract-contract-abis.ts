@@ -8,7 +8,7 @@ import fg from 'fast-glob';
 import { sync as mkdirpSync } from 'mkdirp';
 import _ from 'lodash';
 
-const LATEST_TAG = 'glwss4';
+import { latest as LATEST_TAG } from '../dist/versions.json';
 
 const DEPLOY_CONTRACTS = ['MetaTxToken', 'TokenAuthority'];
 
@@ -36,7 +36,8 @@ const eventsAreEqual = (eventA: Event, eventB: Event) =>
   stringifyInputTypes(eventA) === stringifyInputTypes(eventB);
 
 // This builds artificial ABIs that contain all events across all versions of a versioned contract. Exact duplicates are discarded
-const buildEventsAbis = async () => {
+const buildEventsAbis = async (tag: string) => {
+  const eventsDir = tag === 'next' ? resolvePath(EVENTS_DIR, 'next') : EVENTS_DIR;
   const eventsAbis: Record<string, Event[]> = {};
   readdirSync(OUTPUT_DIR).forEach((tag: string) => {
     readdirSync(resolvePath(OUTPUT_DIR, tag)).forEach((filename) => {
@@ -64,9 +65,9 @@ const buildEventsAbis = async () => {
       contractName,
       abi: events,
     };
-    mkdirpSync(EVENTS_DIR);
+    mkdirpSync(eventsDir);
     writeFileSync(
-      resolvePath(EVENTS_DIR, `${contractName}Events.json`),
+      resolvePath(eventsDir, `${contractName}Events.json`),
       JSON.stringify(abi),
     );
   });
@@ -109,8 +110,8 @@ const extract = async () => {
       JSON.stringify(content, null, 4),
     );
   });
-  if (tag === LATEST_TAG) {
-        buildEventsAbis();
+  if (tag === LATEST_TAG || tag === 'next') {
+        buildEventsAbis(tag);
     }
 };
 

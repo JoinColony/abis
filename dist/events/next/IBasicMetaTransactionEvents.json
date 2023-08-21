@@ -1,0 +1,1 @@
+{"contractName":"IBasicMetaTransaction","abi":[{"anonymous":false,"inputs":[{"indexed":false,"internalType":"address","name":"userAddress","type":"address"},{"indexed":false,"internalType":"address payable","name":"relayerAddress","type":"address"},{"indexed":false,"internalType":"bytes","name":"payload","type":"bytes"}],"name":"MetaTransactionExecuted","type":"event"}]}
