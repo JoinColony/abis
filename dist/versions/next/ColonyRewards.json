@@ -1241,6 +1241,43 @@
                 {
                     "indexed": false,
                     "internalType": "address",
+                    "name": "agent",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "id",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "slot",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "token",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "tokenPayout",
+                    "type": "uint256"
+                }
+            ],
+            "name": "PayoutClaimed",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
                     "name": "ens",
                     "type": "address"
                 },
@@ -2459,6 +2496,16 @@
                     "token": "Token of the payout claim"
                 }
             },
+            "PayoutClaimed(address,uint256,uint256,address,uint256)": {
+                "details": "This is emitted in addition to the other PayoutClaimed event. The other will be removed soon.",
+                "params": {
+                    "agent": "The address that is responsible for triggering this event",
+                    "id": "Id of the expenditure",
+                    "slot": "Expenditure slot of the payout claimed",
+                    "token": "Token of the payout claim",
+                    "tokenPayout": "Amount of the payout claimed, after network fee was deducted"
+                }
+            },
             "RegistrarInitialised(address,bytes32)": {
                 "params": {
                     "ens": "Address of ENS registrar",
@@ -2790,6 +2837,9 @@
             },
             "PayoutClaimed(address,uint256,address,uint256)": {
                 "notice": "Event logged when a payout is claimed, either from a Task or Payment"
+            },
+            "PayoutClaimed(address,uint256,uint256,address,uint256)": {
+                "notice": "Event logged when an expenditure payout is claimed."
             },
             "RegistrarInitialised(address,bytes32)": {
                 "notice": "Event logged when the ENS registrar is initialised"
