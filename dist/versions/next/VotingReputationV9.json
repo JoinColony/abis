@@ -1,5 +1,5 @@
 {
-    "contractName": "VotingReputation",
+    "contractName": "VotingReputationV9",
     "abi": [
         {
             "anonymous": false,
@@ -280,19 +280,6 @@
         {
             "inputs": [
                 {
-                    "internalType": "bool",
-                    "name": "_deprecated",
-                    "type": "bool"
-                }
-            ],
-            "name": "deprecate",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
                     "internalType": "address",
                     "name": "_user",
                     "type": "address"
@@ -327,54 +314,6 @@
                 }
             ],
             "stateMutability": "payable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "finishUpgrade",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes",
-                    "name": "_action",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_altTarget",
-                    "type": "address"
-                }
-            ],
-            "name": "getActionSummary",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "bytes4",
-                            "name": "sig",
-                            "type": "bytes4"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "domainSkillId",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "expenditureId",
-                            "type": "uint256"
-                        }
-                    ],
-                    "internalType": "struct VotingReputationDataTypes.ActionSummary",
-                    "name": "",
-                    "type": "tuple"
-                }
-            ],
-            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -438,70 +377,6 @@
         {
             "inputs": [
                 {
-                    "internalType": "address",
-                    "name": "_userAddress",
-                    "type": "address"
-                }
-            ],
-            "name": "getMetatransactionNonce",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_nonce",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getMotionState",
-            "outputs": [
-                {
-                    "internalType": "enum VotingReputationDataTypes.MotionState",
-                    "name": "_motionState",
-                    "type": "uint8"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "identifier",
-            "outputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "_identifier",
-                    "type": "bytes32"
-                }
-            ],
-            "stateMutability": "pure",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_colony",
-                    "type": "address"
-                }
-            ],
-            "name": "install",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
                     "internalType": "bytes[]",
                     "name": "data",
                     "type": "bytes[]"
@@ -558,13 +433,6 @@
             "type": "function"
         },
         {
-            "inputs": [],
-            "name": "uninstall",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
             "inputs": [
                 {
                     "internalType": "address",
@@ -614,6 +482,38 @@
             "type": "function"
         },
         {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_userAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "getMetatransactionNonce",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_nonce",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "identifier",
+            "outputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "_identifier",
+                    "type": "bytes32"
+                }
+            ],
+            "stateMutability": "pure",
+            "type": "function"
+        },
+        {
             "inputs": [],
             "name": "version",
             "outputs": [
@@ -624,6 +524,19 @@
                 }
             ],
             "stateMutability": "pure",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_colony",
+                    "type": "address"
+                }
+            ],
+            "name": "install",
+            "outputs": [],
+            "stateMutability": "nonpayable",
             "type": "function"
         },
         {
@@ -675,6 +588,33 @@
             "type": "function"
         },
         {
+            "inputs": [],
+            "name": "finishUpgrade",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bool",
+                    "name": "_deprecated",
+                    "type": "bool"
+                }
+            ],
+            "name": "deprecate",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "uninstall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
             "inputs": [
                 {
                     "internalType": "uint256",
@@ -718,6 +658,59 @@
                 }
             ],
             "name": "createMotion",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_permissionDomainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_childSkillIndex",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_vote",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_amount",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "_key",
+                    "type": "bytes"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "_value",
+                    "type": "bytes"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_branchMask",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes32[]",
+                    "name": "_siblings",
+                    "type": "bytes32[]"
+                }
+            ],
+            "name": "stakeMotion",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -876,6 +869,39 @@
                 }
             ],
             "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_permissionDomainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_childSkillIndex",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_staker",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_vote",
+                    "type": "uint256"
+                }
+            ],
+            "name": "claimReward",
+            "outputs": [],
+            "stateMutability": "nonpayable",
             "type": "function"
         },
         {
@@ -1073,17 +1099,12 @@
                             "type": "address"
                         },
                         {
-                            "internalType": "bytes4",
-                            "name": "sig",
-                            "type": "bytes4"
-                        },
-                        {
                             "internalType": "bytes",
                             "name": "action",
                             "type": "bytes"
                         }
                     ],
-                    "internalType": "struct VotingReputationDataTypes.Motion",
+                    "internalType": "struct VotingReputationV9.Motion",
                     "name": "_motion",
                     "type": "tuple"
                 }
@@ -1142,28 +1163,9 @@
         {
             "inputs": [
                 {
-                    "internalType": "uint256",
-                    "name": "_expenditureId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getExpenditureMotionLock",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_expenditureId",
-                    "type": "uint256"
+                    "internalType": "bytes32",
+                    "name": "_actionHash",
+                    "type": "bytes32"
                 }
             ],
             "name": "getExpenditurePastVote",
@@ -1180,17 +1182,17 @@
         {
             "inputs": [
                 {
-                    "internalType": "bytes32",
-                    "name": "_slotSignature",
-                    "type": "bytes32"
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
                 }
             ],
-            "name": "getExpenditurePastVotes_DEPRECATED",
+            "name": "getMotionState",
             "outputs": [
                 {
-                    "internalType": "uint256",
-                    "name": "_vote",
-                    "type": "uint256"
+                    "internalType": "enum VotingReputationV9.MotionState",
+                    "name": "_motionState",
+                    "type": "uint8"
                 }
             ],
             "stateMutability": "view",
@@ -1252,6 +1254,64 @@
                 }
             ],
             "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_staker",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_vote",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getStakerReward",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_reward",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_penalty",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes",
+                    "name": "action",
+                    "type": "bytes"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "value",
+                    "type": "uint256"
+                }
+            ],
+            "name": "createClaimDelayAction",
+            "outputs": [
+                {
+                    "internalType": "bytes",
+                    "name": "",
+                    "type": "bytes"
+                }
+            ],
+            "stateMutability": "nonpayable",
             "type": "function"
         }
     ],

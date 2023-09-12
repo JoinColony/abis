@@ -953,6 +953,11 @@
                             "type": "address"
                         },
                         {
+                            "internalType": "bytes4",
+                            "name": "sig",
+                            "type": "bytes4"
+                        },
+                        {
                             "internalType": "bytes",
                             "name": "action",
                             "type": "bytes"
@@ -1017,12 +1022,50 @@
         {
             "inputs": [
                 {
-                    "internalType": "bytes32",
-                    "name": "_actionHash",
-                    "type": "bytes32"
+                    "internalType": "uint256",
+                    "name": "_expenditureId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getExpenditureMotionLock",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_expenditureId",
+                    "type": "uint256"
                 }
             ],
             "name": "getExpenditurePastVote",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_vote",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "_slotSignature",
+                    "type": "bytes32"
+                }
+            ],
+            "name": "getExpenditurePastVotes_DEPRECATED",
             "outputs": [
                 {
                     "internalType": "uint256",
@@ -1113,6 +1156,47 @@
         {
             "inputs": [
                 {
+                    "internalType": "bytes",
+                    "name": "_action",
+                    "type": "bytes"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_altTarget",
+                    "type": "address"
+                }
+            ],
+            "name": "getActionSummary",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "internalType": "bytes4",
+                            "name": "sig",
+                            "type": "bytes4"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "domainSkillId",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "expenditureId",
+                            "type": "uint256"
+                        }
+                    ],
+                    "internalType": "struct VotingReputationDataTypes.ActionSummary",
+                    "name": "_summary",
+                    "type": "tuple"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
                     "internalType": "uint256",
                     "name": "_motionId",
                     "type": "uint256"
@@ -1142,30 +1226,6 @@
                 }
             ],
             "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes",
-                    "name": "_action",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_value",
-                    "type": "uint256"
-                }
-            ],
-            "name": "createClaimDelayAction",
-            "outputs": [
-                {
-                    "internalType": "bytes",
-                    "name": "_delayAction",
-                    "type": "bytes"
-                }
-            ],
-            "stateMutability": "nonpayable",
             "type": "function"
         },
         {
@@ -1223,16 +1283,6 @@
                     "_vote": "The side being supported (0 = NAY, 1 = YAY)"
                 }
             },
-            "createClaimDelayAction(bytes,uint256)": {
-                "details": "Not expected to be used directly, could be made private in the future",
-                "params": {
-                    "_action": "The action being voted on",
-                    "_value": "The value to set the claim delay to"
-                },
-                "returns": {
-                    "_delayAction": "The delay action"
-                }
-            },
             "createMotion(uint256,uint256,address,bytes,bytes,bytes,uint256,bytes32[])": {
                 "params": {
                     "_action": "A bytes array encoding a function call",
@@ -1279,6 +1329,15 @@
                     "_motionId": "The id of the motion to finalize"
                 }
             },
+            "getActionSummary(bytes,address)": {
+                "params": {
+                    "_action": "The id of the motion",
+                    "_altTarget": "The address of the altTarget, or 0x0 if none exists"
+                },
+                "returns": {
+                    "_summary": "A summary of the multicall"
+                }
+            },
             "getEscalationPeriod()": {
                 "returns": {
                     "_period": "The escalation period"
@@ -1286,15 +1345,33 @@
             },
             "getExpenditureMotionCount(bytes32)": {
                 "params": {
-                    "_structHash": "The hash of the expenditureId or expenditureId*expenditureSlot"
+                    "_structHash": "Hash of an expenditure id and slot"
                 },
                 "returns": {
-                    "_count": "The number of ongoing motions"
+                    "_count": "Number of motions"
                 }
             },
-            "getExpenditurePastVote(bytes32)": {
+            "getExpenditureMotionLock(uint256)": {
                 "params": {
-                    "_actionHash": "The hash of the particular expenditure action"
+                    "_expenditureId": "The expenditureId"
+                },
+                "returns": {
+                    "_motionId": "The motion holding the lock"
+                }
+            },
+            "getExpenditurePastVote(uint256)": {
+                "details": "The previous version of this function which took an actionHash has been deprecated",
+                "params": {
+                    "_expenditureId": "The expenditureId"
+                },
+                "returns": {
+                    "_vote": "The largest past vote on this variable"
+                }
+            },
+            "getExpenditurePastVotes_DEPRECATED(bytes32)": {
+                "details": "This is deprecated, and allows visibility on to this variable for any v9 motions that are still ongoing.",
+                "params": {
+                    "_slotSignature": "The slot signature"
                 },
                 "returns": {
                     "_vote": "The largest past vote on this variable"
@@ -1378,6 +1455,7 @@
                 }
             },
             "getVoterReward(uint256,uint256)": {
+                "details": "This function will only return an accurate value if in the reveal state. Otherwise, use getVoterRewardRange",
                 "params": {
                     "_motionId": "The id of the motion",
                     "_voterRep": "The reputation the voter has in the domain"
@@ -1460,9 +1538,6 @@
             "claimReward(uint256,uint256,uint256,address,uint256)": {
                 "notice": "Claim the staker's reward"
             },
-            "createClaimDelayAction(bytes,uint256)": {
-                "notice": "Create the action that should be taken based on the passed action to appropriately set the claim window of an expenditure from starting."
-            },
             "createMotion(uint256,uint256,address,bytes,bytes,bytes,uint256,bytes32[])": {
                 "notice": "Create a motion"
             },
@@ -1478,14 +1553,23 @@
             "finalizeMotion(uint256)": {
                 "notice": "Finalized a motion, executing its action if appropriate"
             },
+            "getActionSummary(bytes,address)": {
+                "notice": "Return a summary of the multicall action"
+            },
             "getEscalationPeriod()": {
                 "notice": "Get the escalation period"
             },
             "getExpenditureMotionCount(bytes32)": {
-                "notice": "Get the number of ongoing motions for a single expenditure / expenditure slot"
+                "notice": "DEPRECATED Get the count of active motions for an expenditure slot"
             },
-            "getExpenditurePastVote(bytes32)": {
-                "notice": "Get the largest past vote on a single expenditure variable"
+            "getExpenditureMotionLock(uint256)": {
+                "notice": "Get the motion which holds the lock on an expenditure"
+            },
+            "getExpenditurePastVote(uint256)": {
+                "notice": "Get the largest past vote on an expenditure"
+            },
+            "getExpenditurePastVotes_DEPRECATED(bytes32)": {
+                "notice": "DEPRECATED Get the largest past vote on an expenditure"
             },
             "getMaxVoteFraction()": {
                 "notice": "Get the max vote fraction"
@@ -1524,7 +1608,7 @@
                 "notice": "Get the user min stake fraction"
             },
             "getVoterReward(uint256,uint256)": {
-                "notice": "Get the voter reward NB This function will only return a meaningful value if in the reveal state. Prior to the reveal state, getVoterRewardRange should be used."
+                "notice": "Get the voter reward"
             },
             "getVoterRewardFraction()": {
                 "notice": "Get the voter reward fraction"

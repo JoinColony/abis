@@ -1,0 +1,15 @@
+{
+    "contractName": "Strings",
+    "abi": [],
+    "devdoc": {
+        "details": "String operations.",
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+    },
+    "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+    }
+}
