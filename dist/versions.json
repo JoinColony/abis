@@ -17,7 +17,8 @@
         "glwss",
         "glwss2",
         "glwss3",
-        "glwss4"
+        "glwss4",
+        "hmwss"
     ],
     "releaseMap": {
         "IColony": {
@@ -34,6 +35,7 @@
             "glwss2": 11,
             "glwss3": 12,
             "glwss4": 13,
+            "hmwss": 14,
             "next": 14
         },
         "CoinMachine": {
@@ -45,6 +47,7 @@
             "glwss": 6,
             "glwss2": 7,
             "glwss4": 8,
+            "hmwss": 9,
             "next": 9
         },
         "EvaluatedExpenditure": {
@@ -52,6 +55,7 @@
             "flwss": 2,
             "glwss2": 3,
             "glwss4": 4,
+            "hmwss": 5,
             "next": 5
         },
         "FundingQueue": {
@@ -60,6 +64,7 @@
             "flwss": 3,
             "glwss2": 4,
             "glwss4": 5,
+            "hmwss": 6,
             "next": 6
         },
         "IVotingReputation": {
@@ -67,6 +72,7 @@
             "glwss": 7,
             "glwss2": 8,
             "glwss4": 9,
+            "hmwss": 10,
             "next": 10
         },
         "OneTxPayment": {
@@ -75,25 +81,30 @@
             "flwss": 3,
             "glwss2": 4,
             "glwss4": 5,
+            "hmwss": 6,
             "next": 6
         },
         "ReputationBootstrapper": {
             "glwss2": 1,
             "glwss4": 2,
+            "hmwss": 3,
             "next": 3
         },
         "StagedExpenditure": {
+            "hmwss": 1,
             "next": 1
         },
         "StakedExpenditure": {
             "glwss": 1,
             "glwss2": 2,
             "glwss4": 3,
+            "hmwss": 4,
             "next": 4
         },
         "StreamingPayments": {
             "glwss": 1,
             "glwss4": 2,
+            "hmwss": 3,
             "next": 3
         },
         "TokenSupplier": {
@@ -102,6 +113,7 @@
             "flwss": 3,
             "glwss2": 4,
             "glwss4": 5,
+            "hmwss": 6,
             "next": 6
         },
         "VotingReputation": {
@@ -116,6 +128,7 @@
             "flwss": 2,
             "glwss2": 3,
             "glwss4": 4,
+            "hmwss": 5,
             "next": 5
         }
     }
