@@ -55,7 +55,8 @@ const buildEventsAbis = async (tag: string) => {
           ),
           eventsAreEqual,
         );
-      } catch {
+      } catch(err) {
+        console.error(err);
         // ignore
       }
     });
