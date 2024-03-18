@@ -236,7 +236,7 @@
             "inputs": [
                 {
                     "internalType": "address",
-                    "name": "_owner",
+                    "name": "_user",
                     "type": "address"
                 },
                 {
@@ -382,7 +382,7 @@
                     "type": "bytes32"
                 }
             ],
-            "stateMutability": "view",
+            "stateMutability": "pure",
             "type": "function"
         },
         {

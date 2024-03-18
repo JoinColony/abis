@@ -1,5 +1,5 @@
 {
-    "contractName": "ColonyNetwork",
+    "contractName": "ColonyNetworkSkills",
     "abi": [
         {
             "anonymous": false,
@@ -272,31 +272,6 @@
                 {
                     "indexed": false,
                     "internalType": "address",
-                    "name": "user",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "address payable",
-                    "name": "relayerAddress",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
-                    "internalType": "bytes",
-                    "name": "functionSignature",
-                    "type": "bytes"
-                }
-            ],
-            "name": "MetaTransactionExecuted",
-            "type": "event"
-        },
-        {
-            "anonymous": false,
-            "inputs": [
-                {
-                    "indexed": false,
-                    "internalType": "address",
                     "name": "miningCycleResolver",
                     "type": "address"
                 }
@@ -543,58 +518,6 @@
         {
             "inputs": [
                 {
-                    "internalType": "address",
-                    "name": "_user",
-                    "type": "address"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_payload",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_sigR",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_sigS",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "uint8",
-                    "name": "_sigV",
-                    "type": "uint8"
-                }
-            ],
-            "name": "executeMetaTransaction",
-            "outputs": [
-                {
-                    "internalType": "bytes",
-                    "name": "",
-                    "type": "bytes"
-                }
-            ],
-            "stateMutability": "payable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getChainId",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
                     "internalType": "bytes[]",
                     "name": "data",
                     "type": "bytes[]"
@@ -653,150 +576,114 @@
         {
             "inputs": [
                 {
+                    "internalType": "uint256",
+                    "name": "_parentSkillId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "addSkill",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_skillId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "deprecateSkill",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_skillId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bool",
+                    "name": "_deprecated",
+                    "type": "bool"
+                }
+            ],
+            "name": "deprecateSkill",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "initialiseRootLocalSkill",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
                     "internalType": "address",
                     "name": "_user",
                     "type": "address"
                 },
                 {
-                    "internalType": "uint256",
-                    "name": "_nonce",
-                    "type": "uint256"
+                    "internalType": "int256",
+                    "name": "_amount",
+                    "type": "int256"
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_chainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_payload",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_sigR",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_sigS",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "uint8",
-                    "name": "_sigV",
-                    "type": "uint8"
-                }
-            ],
-            "name": "verify",
-            "outputs": [
-                {
-                    "internalType": "bool",
-                    "name": "",
-                    "type": "bool"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_colony",
-                    "type": "address"
-                }
-            ],
-            "name": "isColony",
-            "outputs": [
-                {
-                    "internalType": "bool",
-                    "name": "",
-                    "type": "bool"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getCurrentColonyVersion",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
+                    "name": "_skillId",
                     "type": "uint256"
                 }
             ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getMetaColony",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getColonyCount",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getSkillCount",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getReputationMiningSkillId",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
+            "name": "appendReputationUpdateLog",
+            "outputs": [],
+            "stateMutability": "nonpayable",
             "type": "function"
         },
         {
             "inputs": [
                 {
                     "internalType": "uint256",
-                    "name": "_version",
+                    "name": "_skillId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_parentSkillIndex",
                     "type": "uint256"
                 }
             ],
-            "name": "getColonyVersionResolver",
+            "name": "getParentSkillId",
             "outputs": [
                 {
-                    "internalType": "address",
+                    "internalType": "uint256",
                     "name": "",
-                    "type": "address"
+                    "type": "uint256"
                 }
             ],
             "stateMutability": "view",
@@ -808,261 +695,19 @@
                     "internalType": "uint256",
                     "name": "_skillId",
                     "type": "uint256"
-                }
-            ],
-            "name": "getSkill",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "uint128",
-                            "name": "nParents",
-                            "type": "uint128"
-                        },
-                        {
-                            "internalType": "uint128",
-                            "name": "nChildren",
-                            "type": "uint128"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "parents",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "uint256[]",
-                            "name": "children",
-                            "type": "uint256[]"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "DEPRECATED_globalSkill",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "deprecated",
-                            "type": "bool"
-                        }
-                    ],
-                    "internalType": "struct ColonyNetworkDataTypes.Skill",
-                    "name": "skill",
-                    "type": "tuple"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getReputationRootHash",
-            "outputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "",
-                    "type": "bytes32"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getReputationRootHashNLeaves",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getReputationRootHashNNodes",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_tokenLocking",
-                    "type": "address"
-                }
-            ],
-            "name": "setTokenLocking",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getTokenLocking",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_version",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_resolver",
-                    "type": "address"
-                }
-            ],
-            "name": "addColonyVersion",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_resolver",
-                    "type": "address"
                 },
                 {
                     "internalType": "uint256",
-                    "name": "_version",
+                    "name": "_childSkillIndex",
                     "type": "uint256"
                 }
             ],
-            "name": "initialise",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getColony",
+            "name": "getChildSkillId",
             "outputs": [
                 {
-                    "internalType": "address",
+                    "internalType": "uint256",
                     "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_slot",
                     "type": "uint256"
-                }
-            ],
-            "name": "checkNotAdditionalProtectedVariable",
-            "outputs": [],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getFeeInverse",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_feeInverse",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_feeInverse",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setFeeInverse",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_user",
-                    "type": "address"
-                }
-            ],
-            "name": "getMetatransactionNonce",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "nonce",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "bool",
-                    "name": "_status",
-                    "type": "bool"
-                }
-            ],
-            "name": "setPayoutWhitelist",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                }
-            ],
-            "name": "getPayoutWhitelist",
-            "outputs": [
-                {
-                    "internalType": "bool",
-                    "name": "",
-                    "type": "bool"
                 }
             ],
             "stateMutability": "view",
@@ -1220,17 +865,7 @@
             }
         },
         "kind": "dev",
-        "methods": {
-            "executeMetaTransaction(address,bytes,bytes32,bytes32,uint8)": {
-                "params": {
-                    "_payload": "Function call to make via meta transaction",
-                    "_sigR": "R part of the signature",
-                    "_sigS": "S part of the signature",
-                    "_sigV": "V part of the signature",
-                    "_user": "Address of user trying to do meta transaction"
-                }
-            }
-        },
+        "methods": {},
         "version": 1
     },
     "userdoc": {
@@ -1310,8 +945,8 @@
         },
         "kind": "user",
         "methods": {
-            "executeMetaTransaction(address,bytes,bytes32,bytes32,uint8)": {
-                "notice": "Main function to be called when user wants to execute meta transaction. The actual function to be called should be passed as param with name functionSignature Here the basic signature recovery is being used. Signature is expected to be generated using personal_sign method."
+            "deprecateSkill(uint256)": {
+                "notice": "@deprecated"
             }
         },
         "version": 1

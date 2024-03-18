@@ -1867,6 +1867,30 @@
             "type": "event"
         },
         {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "DEPRECATED_taskWorkRatings",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "count",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "timestamp",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
             "inputs": [],
             "name": "authority",
             "outputs": [
@@ -1940,30 +1964,6 @@
             "name": "setOwner",
             "outputs": [],
             "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "name": "taskWorkRatings",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "count",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -2102,127 +2102,6 @@
                     "type": "uint256"
                 },
                 {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_amount",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setTaskManagerPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_amount",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setTaskEvaluatorPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_amount",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setTaskWorkerPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint8",
-                    "name": "_role",
-                    "type": "uint8"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                }
-            ],
-            "name": "getTaskPayout",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint8",
-                    "name": "_role",
-                    "type": "uint8"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                }
-            ],
-            "name": "claimTaskPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
                     "internalType": "uint256[]",
                     "name": "_slots",
                     "type": "uint256[]"
@@ -2328,57 +2207,6 @@
                 }
             ],
             "name": "claimExpenditurePayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_permissionDomainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_childSkillIndex",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_amount",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setPaymentPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                }
-            ],
-            "name": "claimPayment",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -3186,7 +3014,7 @@
                 "notice": "Event logged when a payment has its skill set"
             },
             "PayoutClaimed(address,uint256,address,uint256)": {
-                "notice": "Event logged when a payout is claimed, either from a Task or Payment"
+                "notice": "Event logged when a payout is claimed"
             },
             "PayoutClaimed(address,uint256,uint256,address,uint256)": {
                 "notice": "Event logged when an expenditure payout is claimed."

@@ -249,7 +249,7 @@
             "inputs": [
                 {
                     "internalType": "address",
-                    "name": "_owner",
+                    "name": "_user",
                     "type": "address"
                 },
                 {

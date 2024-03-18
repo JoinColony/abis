@@ -1651,7 +1651,7 @@
             "inputs": [
                 {
                     "internalType": "address",
-                    "name": "_owner",
+                    "name": "_user",
                     "type": "address"
                 },
                 {
@@ -1809,6 +1809,49 @@
                 }
             ],
             "name": "releaseStagedPayment",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_permissionDomainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_childSkillIndex",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_extensionPermissionDomainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_extensionChildSkillIndex",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_expenditureId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_slot",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address[]",
+                    "name": "_tokens",
+                    "type": "address[]"
+                }
+            ],
+            "name": "releaseStagedPaymentViaArbitration",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -2232,6 +2275,18 @@
                     "_tokens": "An array of payment tokens associated with the slot"
                 }
             },
+            "releaseStagedPaymentViaArbitration(uint256,uint256,uint256,uint256,uint256,uint256,address[])": {
+                "details": "Anyone with arbitration permission can call this, must be in finalized state",
+                "params": {
+                    "_childSkillIndex": "The index that the `_expenditureId` is relative to `_permissionDomainId`,",
+                    "_expenditureId": "The id of the expenditure",
+                    "_extensionChildSkillIndex": "The index that the `_expenditureId` is relative to `_permissionDomainId`,",
+                    "_extensionPermissionDomainId": "The domainId in which the extension has the arbitration permission",
+                    "_permissionDomainId": "The domainId in which the caller has the arbitration permission",
+                    "_slot": "The slot being released",
+                    "_tokens": "An array of payment tokens associated with the slot"
+                }
+            },
             "setExpenditureStaged(uint256,bool)": {
                 "details": "Only owner can call this function, must be in draft state",
                 "params": {
@@ -2355,7 +2410,7 @@
                 "notice": "Event logged when a payment has its skill set"
             },
             "PayoutClaimed(address,uint256,address,uint256)": {
-                "notice": "Event logged when a payout is claimed, either from a Task or Payment"
+                "notice": "Event logged when a payout is claimed"
             },
             "PayoutClaimed(address,uint256,uint256,address,uint256)": {
                 "notice": "Event logged when an expenditure payout is claimed."
@@ -2433,6 +2488,9 @@
                 "notice": "Configures the extension"
             },
             "releaseStagedPayment(uint256,uint256,uint256,uint256,address[])": {
+                "notice": "Release a staged payment slot and claim tokens"
+            },
+            "releaseStagedPaymentViaArbitration(uint256,uint256,uint256,uint256,uint256,uint256,address[])": {
                 "notice": "Release a staged payment slot and claim tokens"
             },
             "setExpenditureStaged(uint256,bool)": {

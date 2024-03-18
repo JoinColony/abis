@@ -1867,6 +1867,30 @@
             "type": "event"
         },
         {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "DEPRECATED_taskWorkRatings",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "count",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "timestamp",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
             "inputs": [],
             "name": "authority",
             "outputs": [
@@ -1940,30 +1964,6 @@
             "name": "setOwner",
             "outputs": [],
             "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "name": "taskWorkRatings",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "count",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "timestamp",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -2823,7 +2823,7 @@
                 "notice": "Event logged when a payment has its skill set"
             },
             "PayoutClaimed(address,uint256,address,uint256)": {
-                "notice": "Event logged when a payout is claimed, either from a Task or Payment"
+                "notice": "Event logged when a payout is claimed"
             },
             "PayoutClaimed(address,uint256,uint256,address,uint256)": {
                 "notice": "Event logged when an expenditure payout is claimed."

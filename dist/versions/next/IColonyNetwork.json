@@ -1011,7 +1011,7 @@
                         },
                         {
                             "internalType": "bool",
-                            "name": "globalSkill",
+                            "name": "DEPRECATED_globalSkill",
                             "type": "bool"
                         },
                         {
@@ -2562,12 +2562,13 @@
                 }
             },
             "deprecateSkill(uint256)": {
-                "details": "This function is deprecated and will be removed in a future release",
+                "details": "This function is deprecated and will be removed in a future releaseCurrently disabled, and will error if called even by a colony",
                 "params": {
                     "_skillId": "Id of the skill"
                 }
             },
             "deprecateSkill(uint256,bool)": {
+                "details": "Currently disabled, and will error if called even by a colony",
                 "params": {
                     "_deprecated": "Deprecation status",
                     "_skillId": "Id of the skill"
@@ -3076,7 +3077,7 @@
                 "notice": "Add a new extension resolver to the Extensions repository."
             },
             "addSkill(uint256)": {
-                "notice": "Adds a new skill to the global or local skills tree, under skill `_parentSkillId`. Only the Meta Colony is allowed to add a global skill, called via `IColony.addGlobalSkill`. Any colony is allowed to add a local skill and which is associated with a new domain via `IColony.addDomain`."
+                "notice": "Adds a new skill to the domain or local skills tree, under skill `_parentSkillId`. Any colony is allowed to add a local skill and which is associated with a new domain via `IColony.addDomain`."
             },
             "addr(bytes32)": {
                 "notice": "Returns the address the supplied node resolves do, if we are the resolver."

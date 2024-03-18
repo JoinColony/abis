@@ -1540,55 +1540,6 @@
         {
             "inputs": [
                 {
-                    "internalType": "uint256",
-                    "name": "_permissionDomainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_childSkillIndex",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address payable",
-                    "name": "_recipient",
-                    "type": "address"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_amount",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_domainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_skillId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "addPayment",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "paymentId",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
                     "internalType": "bytes32",
                     "name": "_txHash",
                     "type": "bytes32"
@@ -1700,11 +1651,21 @@
             "inputs": [
                 {
                     "internalType": "uint256",
+                    "name": "_permissionDomainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_childSkillIndex",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
                     "name": "_id",
                     "type": "uint256"
                 }
             ],
-            "name": "cancelTask",
+            "name": "cancelExpenditureViaArbitration",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -1762,24 +1723,6 @@
             "inputs": [
                 {
                     "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                }
-            ],
-            "name": "claimPayment",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
                     "name": "_payoutId",
                     "type": "uint256"
                 },
@@ -1810,42 +1753,6 @@
                 }
             ],
             "name": "claimRewardPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint8",
-                    "name": "_role",
-                    "type": "uint8"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                }
-            ],
-            "name": "claimTaskPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                }
-            ],
-            "name": "completeTask",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -2140,82 +2047,6 @@
             "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint8[]",
-                    "name": "_sigV",
-                    "type": "uint8[]"
-                },
-                {
-                    "internalType": "bytes32[]",
-                    "name": "_sigR",
-                    "type": "bytes32[]"
-                },
-                {
-                    "internalType": "bytes32[]",
-                    "name": "_sigS",
-                    "type": "bytes32[]"
-                },
-                {
-                    "internalType": "uint8[]",
-                    "name": "_mode",
-                    "type": "uint8[]"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_value",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_data",
-                    "type": "bytes"
-                }
-            ],
-            "name": "executeTaskChange",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint8[]",
-                    "name": "_sigV",
-                    "type": "uint8[]"
-                },
-                {
-                    "internalType": "bytes32[]",
-                    "name": "_sigR",
-                    "type": "bytes32[]"
-                },
-                {
-                    "internalType": "bytes32[]",
-                    "name": "_sigS",
-                    "type": "bytes32[]"
-                },
-                {
-                    "internalType": "uint8[]",
-                    "name": "_mode",
-                    "type": "uint8[]"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_value",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_data",
-                    "type": "bytes"
-                }
-            ],
-            "name": "executeTaskRoleAssignment",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
             "inputs": [],
             "name": "exitRecoveryMode",
             "outputs": [],
@@ -2253,7 +2084,7 @@
                     "type": "uint256"
                 }
             ],
-            "name": "finalizePayment",
+            "name": "finalizeExpenditureViaArbitration",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -2272,47 +2103,10 @@
             "type": "function"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                }
-            ],
-            "name": "finalizeTask",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
             "inputs": [],
             "name": "finishUpgrade",
             "outputs": [],
             "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "_salt",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_value",
-                    "type": "uint256"
-                }
-            ],
-            "name": "generateSecret",
-            "outputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "secret",
-                    "type": "bytes32"
-                }
-            ],
-            "stateMutability": "pure",
             "type": "function"
         },
         {
@@ -2978,35 +2772,6 @@
                     "internalType": "uint8",
                     "name": "_role",
                     "type": "uint8"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                }
-            ],
-            "name": "getTaskPayout",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "amount",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint8",
-                    "name": "_role",
-                    "type": "uint8"
                 }
             ],
             "name": "getTaskRole",
@@ -3425,44 +3190,6 @@
             "inputs": [
                 {
                     "internalType": "uint256",
-                    "name": "_permissionDomainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_childSkillIndex",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_specificationHash",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_domainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_skillId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_dueDate",
-                    "type": "uint256"
-                }
-            ],
-            "name": "makeTask",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
                     "name": "_wad",
                     "type": "uint256"
                 }
@@ -3689,60 +3416,6 @@
             "inputs": [
                 {
                     "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                }
-            ],
-            "name": "removeTaskEvaluatorRole",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                }
-            ],
-            "name": "removeTaskWorkerRole",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint8",
-                    "name": "_role",
-                    "type": "uint8"
-                },
-                {
-                    "internalType": "uint8",
-                    "name": "_rating",
-                    "type": "uint8"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_salt",
-                    "type": "bytes32"
-                }
-            ],
-            "name": "revealTaskWorkRating",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
                     "name": "_permissionDomainId",
                     "type": "uint256"
                 },
@@ -3768,39 +3441,6 @@
                 }
             ],
             "name": "setAdministrationRole",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_managerAmount",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_evaluatorAmount",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_workerAmount",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setAllTaskPayouts",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -4332,95 +3972,6 @@
         {
             "inputs": [
                 {
-                    "internalType": "uint256",
-                    "name": "_permissionDomainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_childSkillIndex",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_amount",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setPaymentPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_permissionDomainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_childSkillIndex",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address payable",
-                    "name": "_recipient",
-                    "type": "address"
-                }
-            ],
-            "name": "setPaymentRecipient",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_permissionDomainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_childSkillIndex",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_skillId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setPaymentSkill",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
                     "internalType": "address",
                     "name": "_user",
                     "type": "address"
@@ -4476,193 +4027,6 @@
                 }
             ],
             "name": "setStorageSlotRecovery",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_specificationHash",
-                    "type": "bytes32"
-                }
-            ],
-            "name": "setTaskBrief",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_dueDate",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setTaskDueDate",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_amount",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setTaskEvaluatorPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address payable",
-                    "name": "_user",
-                    "type": "address"
-                }
-            ],
-            "name": "setTaskEvaluatorRole",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_amount",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setTaskManagerPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address payable",
-                    "name": "_user",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_permissionDomainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_childSkillIndex",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setTaskManagerRole",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_skillId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setTaskSkill",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_amount",
-                    "type": "uint256"
-                }
-            ],
-            "name": "setTaskWorkerPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address payable",
-                    "name": "_user",
-                    "type": "address"
-                }
-            ],
-            "name": "setTaskWorkerRole",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -4729,70 +4093,6 @@
                 }
             ],
             "name": "startNextRewardPayout",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_deliverableHash",
-                    "type": "bytes32"
-                }
-            ],
-            "name": "submitTaskDeliverable",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_deliverableHash",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_ratingSecret",
-                    "type": "bytes32"
-                }
-            ],
-            "name": "submitTaskDeliverableAndRating",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint8",
-                    "name": "_role",
-                    "type": "uint8"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_ratingSecret",
-                    "type": "bytes32"
-                }
-            ],
-            "name": "submitTaskWorkRating",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -5076,32 +4376,6 @@
                 }
             ],
             "name": "mintTokensForColonyNetwork",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "addGlobalSkill",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "skillId",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_skillId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "deprecateGlobalSkill",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -5624,31 +4898,11 @@
                     "_resolver": "The deployed resolver containing the extension contract logic"
                 }
             },
-            "addGlobalSkill()": {
-                "details": "Calls `IColonyNetwork.addSkill`.",
-                "returns": {
-                    "skillId": "Id of the added skill"
-                }
-            },
             "addNetworkColonyVersion(uint256,address)": {
                 "details": "Calls `IColonyNetwork.addColonyVersion`.",
                 "params": {
                     "_resolver": "Address of the `Resolver` contract which will be used with the underlying `EtherRouter` contract",
                     "_version": "The new Colony contract version"
-                }
-            },
-            "addPayment(uint256,uint256,address,address,uint256,uint256,uint256)": {
-                "params": {
-                    "_amount": "Payout amount",
-                    "_childSkillIndex": "The index that the `_domainId` is relative to `_permissionDomainId`, (only used if `_permissionDomainId` is different to `_domainId`)",
-                    "_domainId": "The domain where the payment belongs",
-                    "_permissionDomainId": "The domainId in which I have the permission to take this action",
-                    "_recipient": "Address of the payment recipient",
-                    "_skillId": "The skill associated with the payment",
-                    "_token": "Address of the token, `0x0` value indicates Ether"
-                },
-                "returns": {
-                    "paymentId": "Identifier of the newly created payment"
                 }
             },
             "annotateTransaction(bytes32,string)": {
@@ -5687,10 +4941,11 @@
                     "_id": "Expenditure identifier"
                 }
             },
-            "cancelTask(uint256)": {
-                "details": "Set the `task.status` property to `1`.",
+            "cancelExpenditureViaArbitration(uint256,uint256,uint256)": {
                 "params": {
-                    "_id": "Id of the task"
+                    "_childSkillIndex": "The index that the `_domainId` is relative to `_permissionDomainId`, (only used if `_permissionDomainId` is different to `_domainId`)",
+                    "_id": "Expenditure identifier",
+                    "_permissionDomainId": "The domainId in which I have the permission to take this action"
                 }
             },
             "checkNotAdditionalProtectedVariable(uint256)": {
@@ -5711,12 +4966,6 @@
                     "_token": "Address of the token, `0x0` value indicates Ether"
                 }
             },
-            "claimPayment(uint256,address)": {
-                "params": {
-                    "_id": "Payment identifier",
-                    "_token": "Address of the token, `0x0` value indicates Ether"
-                }
-            },
             "claimRewardPayout(uint256,uint256[7],bytes,bytes,uint256,bytes32[])": {
                 "params": {
                     "_payoutId": "Id of the reward payout",
@@ -5725,18 +4974,6 @@
                     "key": "Some Reputation hash tree key",
                     "siblings": "The siblings of the proof",
                     "value": "Reputation value"
-                }
-            },
-            "claimTaskPayout(uint256,uint8,address)": {
-                "params": {
-                    "_id": "Id of the task",
-                    "_role": "Id of the role, as defined in TaskRole enum",
-                    "_token": "Address of the token, `0x0` value indicates Ether"
-                }
-            },
-            "completeTask(uint256)": {
-                "params": {
-                    "_id": "Id of the task"
                 }
             },
             "deobligateStake(address,uint256,uint256)": {
@@ -5758,12 +4995,6 @@
                 "params": {
                     "deprecated": "Whether to deprecate the extension or not",
                     "extensionId": "keccak256 hash of the extension name, used as an indentifier"
-                }
-            },
-            "deprecateGlobalSkill(uint256)": {
-                "details": "Calls `IColonyNetwork.deprecateSkill`.",
-                "params": {
-                    "_skillId": "Id of the added skill"
                 }
             },
             "deprecateLocalSkill(uint256,bool)": {
@@ -5829,36 +5060,15 @@
                     "userAddress": "The address of the user that signed the metatransaction"
                 }
             },
-            "executeTaskChange(uint8[],bytes32[],bytes32[],uint8[],uint256,bytes)": {
-                "details": "The Colony functions which require approval and the task roles to review these are set in `IColony.initialiseColony` at colony creation. Upon successful execution the `taskChangeNonces` entry for the task is incremented.",
-                "params": {
-                    "_data": "The transaction data",
-                    "_mode": "How the signature was generated - 0 for Geth-style (usual), 1 for Trezor-style (only Trezor does this)",
-                    "_sigR": "r output of the ECDSA signature of the transaction",
-                    "_sigS": "s output of the ECDSA signature of the transaction",
-                    "_sigV": "recovery id",
-                    "_value": "The transaction value, i.e. number of wei to be sent when the transaction is executed Currently we only accept 0 value transactions but this is kept as a future option"
-                }
-            },
-            "executeTaskRoleAssignment(uint8[],bytes32[],bytes32[],uint8[],uint256,bytes)": {
-                "params": {
-                    "_data": "The transaction data",
-                    "_mode": "How the signature was generated - 0 for Geth-style (usual), 1 for Trezor-style (only Trezor does this)",
-                    "_sigR": "r output of the ECDSA signature of the transaction",
-                    "_sigS": "s output of the ECDSA signature of the transaction",
-                    "_sigV": "recovery id",
-                    "_value": "The transaction value, i.e. number of wei to be sent when the transaction is executed Currently we only accept 0 value transactions but this is kept as a future option"
-                }
-            },
             "finalizeExpenditure(uint256)": {
                 "params": {
                     "_id": "Expenditure identifier"
                 }
             },
-            "finalizePayment(uint256,uint256,uint256)": {
+            "finalizeExpenditureViaArbitration(uint256,uint256,uint256)": {
                 "params": {
-                    "_childSkillIndex": "The index that the `_domainId` is relative to `_permissionDomainId`",
-                    "_id": "Payment identifier",
+                    "_childSkillIndex": "The index that the `_domainId` is relative to `_permissionDomainId`,",
+                    "_id": "Expenditure identifier",
                     "_permissionDomainId": "The domainId in which I have the permission to take this action"
                 }
             },
@@ -5867,23 +5077,8 @@
                     "_payoutId": "Id of the reward payout"
                 }
             },
-            "finalizeTask(uint256)": {
-                "details": "Set the `task.finalized` property to true",
-                "params": {
-                    "_id": "Id of the task"
-                }
-            },
             "finishUpgrade()": {
                 "details": "Can only be called by the colony itself, and only expected to be called as part of the `upgrade()` call. Required to be external so it can be an external call."
-            },
-            "generateSecret(bytes32,uint256)": {
-                "params": {
-                    "_salt": "Salt value",
-                    "_value": "Value to hide"
-                },
-                "returns": {
-                    "secret": "`keccak256` hash of joint _salt and _value"
-                }
             },
             "getApproval(address,address,uint256)": {
                 "params": {
@@ -5968,7 +5163,7 @@
                     "_id": "Id of the pot which details to get"
                 },
                 "returns": {
-                    "associatedType": "The FundingPotAssociatedType value of the current funding pot, e.g. Domain, Task, Payout",
+                    "associatedType": "The FundingPotAssociatedType value of the current funding pot, e.g. Domain, Expenditure",
                     "associatedTypeId": "Id of the associated type, e.g. if associatedType = FundingPotAssociatedType.Domain, this refers to the domainId",
                     "payoutsWeCannotMake": "Number of payouts that cannot be completed with the current funding"
                 }
@@ -6076,16 +5271,6 @@
             "getTaskCount()": {
                 "returns": {
                     "count": "The task count"
-                }
-            },
-            "getTaskPayout(uint256,uint8,address)": {
-                "params": {
-                    "_id": "Id of the task",
-                    "_role": "Id of the role, as defined in TaskRole enum",
-                    "_token": "Address of the token, `0x0` value indicates Ether"
-                },
-                "returns": {
-                    "amount": "Payout amount"
                 }
             },
             "getTaskRole(uint256,uint8)": {
@@ -6235,16 +5420,6 @@
                     "success": "Boolean indicating whether the transactions succeeded"
                 }
             },
-            "makeTask(uint256,uint256,bytes32,uint256,uint256,uint256)": {
-                "params": {
-                    "_childSkillIndex": "The index that the `_domainId` is relative to `_permissionDomainId`",
-                    "_domainId": "The domain where the task belongs",
-                    "_dueDate": "The due date of the task, can set to `0` for no-op",
-                    "_permissionDomainId": "The domainId in which I have the permission to take this action",
-                    "_skillId": "The skill associated with the task, can set to `0` for no-op",
-                    "_specificationHash": "Database identifier where the task specification is stored"
-                }
-            },
             "mintTokens(uint256)": {
                 "params": {
                     "_wad": "Amount to mint"
@@ -6323,25 +5498,6 @@
                     "_user": "User we want to remove recovery role from"
                 }
             },
-            "removeTaskEvaluatorRole(uint256)": {
-                "params": {
-                    "_id": "Id of the task"
-                }
-            },
-            "removeTaskWorkerRole(uint256)": {
-                "params": {
-                    "_id": "Id of the task"
-                }
-            },
-            "revealTaskWorkRating(uint256,uint8,uint8,bytes32)": {
-                "details": "Compares the `keccak256(_salt, _rating)` output with the previously submitted rating secret and if they match, sets the task role properties `rated` to `true` and `rating` to `_rating`.",
-                "params": {
-                    "_id": "Id of the task",
-                    "_rating": "0-50 rating score (in increments of 10, .e.g 0, 10, 20, 30, 40 or 50)",
-                    "_role": "Id of the role, as defined in TaskRole enum",
-                    "_salt": "Salt value used to generate the rating secret"
-                }
-            },
             "setAdministrationRole(uint256,uint256,address,uint256,bool)": {
                 "params": {
                     "_childSkillIndex": "The index that the `_domainId` is relative to `_permissionDomainId`",
@@ -6349,16 +5505,6 @@
                     "_permissionDomainId": "Domain in which the caller has root/architecture role",
                     "_setTo": "The state of the role permission (true assign the permission, false revokes it)",
                     "_user": "User we want to give an admin role to"
-                }
-            },
-            "setAllTaskPayouts(uint256,address,uint256,uint256,uint256)": {
-                "details": "Can only call if evaluator and worker are unassigned or manager, otherwise need signature.",
-                "params": {
-                    "_evaluatorAmount": "Payout amount for evaluator",
-                    "_id": "Id of the task",
-                    "_managerAmount": "Payout amount for manager",
-                    "_token": "Address of the token, `0x0` value indicates Ether",
-                    "_workerAmount": "Payout amount for worker"
                 }
             },
             "setArbitrationRole(uint256,uint256,address,uint256,bool)": {
@@ -6520,31 +5666,6 @@
                     "_feeInverse": "Nonzero amount for the fee inverse"
                 }
             },
-            "setPaymentPayout(uint256,uint256,uint256,address,uint256)": {
-                "params": {
-                    "_amount": "Payout amount",
-                    "_childSkillIndex": "The index that the `_domainId` is relative to `_permissionDomainId`",
-                    "_id": "Payment identifier",
-                    "_permissionDomainId": "The domainId in which I have the permission to take this action",
-                    "_token": "Address of the token, `0x0` value indicates Ether"
-                }
-            },
-            "setPaymentRecipient(uint256,uint256,uint256,address)": {
-                "params": {
-                    "_childSkillIndex": "The index that the `_domainId` is relative to `_permissionDomainId`",
-                    "_id": "Payment identifier",
-                    "_permissionDomainId": "The domainId in which I have the permission to take this action",
-                    "_recipient": "Address of the payment recipient"
-                }
-            },
-            "setPaymentSkill(uint256,uint256,uint256,uint256)": {
-                "params": {
-                    "_childSkillIndex": "The index that the `_domainId` is relative to `_permissionDomainId`",
-                    "_id": "Payment identifier",
-                    "_permissionDomainId": "The domainId in which I have the permission to take this action",
-                    "_skillId": "Id of the new skill to set"
-                }
-            },
             "setPayoutWhitelist(address,bool)": {
                 "params": {
                     "_status": "The whitelist status",
@@ -6580,69 +5701,6 @@
                     "_value": "word of data to be set"
                 }
             },
-            "setTaskBrief(uint256,bytes32)": {
-                "params": {
-                    "_id": "Id of the task",
-                    "_specificationHash": "Unique hash of the task brief in ddb"
-                }
-            },
-            "setTaskDueDate(uint256,uint256)": {
-                "params": {
-                    "_dueDate": "Due date as seconds since unix epoch",
-                    "_id": "Id of the task"
-                }
-            },
-            "setTaskEvaluatorPayout(uint256,address,uint256)": {
-                "params": {
-                    "_amount": "Payout amount",
-                    "_id": "Id of the task",
-                    "_token": "Address of the token, `0x0` value indicates Ether"
-                }
-            },
-            "setTaskEvaluatorRole(uint256,address)": {
-                "details": "This function can only be called through `executeTaskRoleAssignment`.",
-                "params": {
-                    "_id": "Id of the task",
-                    "_user": "Address of the user we want to give a evaluator role to"
-                }
-            },
-            "setTaskManagerPayout(uint256,address,uint256)": {
-                "params": {
-                    "_amount": "Payout amount",
-                    "_id": "Id of the task",
-                    "_token": "Address of the token, `0x0` value indicates Ether"
-                }
-            },
-            "setTaskManagerRole(uint256,address,uint256,uint256)": {
-                "details": "This function can only be called through `executeTaskRoleAssignment`.",
-                "params": {
-                    "_childSkillIndex": "The index that the `_domainId` is relative to `_permissionDomainId`",
-                    "_id": "Id of the task",
-                    "_permissionDomainId": "The domain ID in which _user has the Administration permission",
-                    "_user": "Address of the user we want to give a manager role to"
-                }
-            },
-            "setTaskSkill(uint256,uint256)": {
-                "details": "Currently we only allow one skill per task although we have provisioned for an array of skills in `Task` struct. Allowed before a task is finalized.",
-                "params": {
-                    "_id": "Id of the task",
-                    "_skillId": "Id of the skill which has to be a global skill"
-                }
-            },
-            "setTaskWorkerPayout(uint256,address,uint256)": {
-                "params": {
-                    "_amount": "Payout amount",
-                    "_id": "Id of the task",
-                    "_token": "Address of the token, `0x0` value indicates Ether"
-                }
-            },
-            "setTaskWorkerRole(uint256,address)": {
-                "details": "This function can only be called through `executeTaskRoleAssignment`.",
-                "params": {
-                    "_id": "Id of the task",
-                    "_user": "Address of the user we want to give a worker role to"
-                }
-            },
             "setUserRoles(uint256,uint256,address,uint256,bytes32)": {
                 "params": {
                     "_childSkillIndex": "The index that the `_domainId` is relative to `_permissionDomainId`",
@@ -6659,28 +5717,6 @@
                     "key": "Some Reputation hash tree key",
                     "siblings": "The siblings of the proof",
                     "value": "Reputation value"
-                }
-            },
-            "submitTaskDeliverable(uint256,bytes32)": {
-                "details": "Set the `task.deliverableHash` and `task.completionTimestamp` properties.",
-                "params": {
-                    "_deliverableHash": "Unique hash of the task deliverable content in ddb",
-                    "_id": "Id of the task"
-                }
-            },
-            "submitTaskDeliverableAndRating(uint256,bytes32,bytes32)": {
-                "details": "Internally call `submitTaskDeliverable` and `submitTaskWorkRating` in sequence.",
-                "params": {
-                    "_deliverableHash": "Unique hash of the task deliverable content in ddb",
-                    "_id": "Id of the task",
-                    "_ratingSecret": "Rating secret for manager"
-                }
-            },
-            "submitTaskWorkRating(uint256,uint8,bytes32)": {
-                "params": {
-                    "_id": "Id of the task",
-                    "_ratingSecret": "`keccak256` hash of a salt and 0-50 rating score (in increments of 10, .e.g 0, 10, 20, 30, 40 or 50). Can be generated via `IColony.generateSecret` helper function.",
-                    "_role": "Id of the role, as defined in TaskRole enum"
                 }
             },
             "transferExpenditure(uint256,address)": {
@@ -6883,7 +5919,7 @@
                 "notice": "Event logged when a payment has its skill set"
             },
             "PayoutClaimed(address,uint256,address,uint256)": {
-                "notice": "Event logged when a payout is claimed, either from a Task or Payment"
+                "notice": "Event logged when a payout is claimed"
             },
             "PayoutClaimed(address,uint256,uint256,address,uint256)": {
                 "notice": "Event logged when an expenditure payout is claimed."
@@ -6969,17 +6005,11 @@
             "addExtensionToNetwork(bytes32,address)": {
                 "notice": "Add a new extension/version to the Extensions repository."
             },
-            "addGlobalSkill()": {
-                "notice": "Add a new global skill."
-            },
             "addLocalSkill()": {
                 "notice": "Add a new local skill for the colony. Secured function to authorised members."
             },
             "addNetworkColonyVersion(uint256,address)": {
                 "notice": "Adds a new Colony contract version and the address of associated `_resolver` contract. Secured function to authorised members."
-            },
-            "addPayment(uint256,uint256,address,address,uint256,uint256,uint256)": {
-                "notice": "Add a new payment in the colony. Secured function to authorised members."
             },
             "annotateTransaction(bytes32,string)": {
                 "notice": "Emit a metadata string for a transaction"
@@ -7002,8 +6032,8 @@
             "cancelExpenditure(uint256)": {
                 "notice": "Cancels the expenditure and prevents further editing. Can only be called by expenditure owner."
             },
-            "cancelTask(uint256)": {
-                "notice": "Cancel a task at any point before it is finalized. Secured function to authorised members. Any funds assigned to its funding pot can be moved back to the domain via `IColony.moveFundsBetweenPots`."
+            "cancelExpenditureViaArbitration(uint256,uint256,uint256)": {
+                "notice": "Cancels the expenditure and prevents further editing."
             },
             "checkNotAdditionalProtectedVariable(uint256)": {
                 "notice": "Check whether the supplied slot is a protected variable specific to this contract"
@@ -7014,17 +6044,8 @@
             "claimExpenditurePayout(uint256,uint256,address)": {
                 "notice": "Claim the payout for an expenditure slot. Here the network receives a fee from each payout."
             },
-            "claimPayment(uint256,address)": {
-                "notice": "Claim the payout in `_token` denomination for payment `_id`. Here the network receives its fee from each payout. Same as for tasks, ether fees go straight to the Meta Colony whereas Token fees go to the Network to be auctioned off."
-            },
             "claimRewardPayout(uint256,uint256[7],bytes,bytes,uint256,bytes32[])": {
                 "notice": "Claim the reward payout at `_payoutId`. User needs to provide their reputation and colony-wide reputation which will be proven via Merkle proof inside this function. Can only be called if payout is active, i.e if 60 days have not passed from its creation. Can only be called if next in queue."
-            },
-            "claimTaskPayout(uint256,uint8,address)": {
-                "notice": "Claim the payout in `_token` denomination for work completed in task `_id` by contributor with role `_role`. Allowed only after task is finalized. Here the network receives its fee from each payout. Ether fees go straight to the Meta Colony whereas Token fees go to the Network to be auctioned off."
-            },
-            "completeTask(uint256)": {
-                "notice": "Mark a task as complete after the due date has passed. This allows the task to be rated and finalized (and funds recovered) even in the presence of a worker who has disappeared. Note that if the due date was not set, then this function will throw."
             },
             "deobligateStake(address,uint256,uint256)": {
                 "notice": "Deobligate the user some amount of tokens, releasing the stake."
@@ -7034,9 +6055,6 @@
             },
             "deprecateExtension(bytes32,bool)": {
                 "notice": "Set the deprecation of an extension in a colony. Secured function to authorised members."
-            },
-            "deprecateGlobalSkill(uint256)": {
-                "notice": "Mark a global skill as deprecated which stops new tasks and payments from using it."
             },
             "deprecateLocalSkill(uint256,bool)": {
                 "notice": "Deprecate a local skill for the colony. Secured function to authorised members."
@@ -7068,32 +6086,20 @@
             "executeMetaTransaction(address,bytes,bytes32,bytes32,uint8)": {
                 "notice": "Executes a metatransaction targeting this contract"
             },
-            "executeTaskChange(uint8[],bytes32[],bytes32[],uint8[],uint256,bytes)": {
-                "notice": "Executes a task update transaction `_data` which is approved and signed by two of its roles (e.g. manager and worker) using the detached signatures for these users."
-            },
-            "executeTaskRoleAssignment(uint8[],bytes32[],bytes32[],uint8[],uint256,bytes)": {
-                "notice": "Executes a task role update transaction `_data` which is approved and signed by two of addresses. depending of which function we are calling. Allowed functions are `setTaskManagerRole`, `setTaskEvaluatorRole` and `setTaskWorkerRole`. Upon successful execution the `taskChangeNonces` entry for the task is incremented."
-            },
             "exitRecoveryMode()": {
                 "notice": "Exit recovery mode, can be called by anyone if enough whitelist approvals are given."
             },
             "finalizeExpenditure(uint256)": {
                 "notice": "Finalizes the expenditure and allows for funds to be claimed. Can only be called by expenditure owner."
             },
-            "finalizePayment(uint256,uint256,uint256)": {
-                "notice": "Finalizes the payment and logs the reputation log updates. Allowed to be called once after payment is fully funded. Secured function to authorised members."
+            "finalizeExpenditureViaArbitration(uint256,uint256,uint256)": {
+                "notice": "Finalizes the expenditure and allows for funds to be claimed. Can only be called by expenditure owner."
             },
             "finalizeRewardPayout(uint256)": {
                 "notice": "Finalises the reward payout. Allows creation of next reward payouts for token that has been used in `_payoutId`. Can only be called when reward payout cycle is finished i.e when 60 days have passed from its creation."
             },
-            "finalizeTask(uint256)": {
-                "notice": "Called after task work rating is complete which closes the task and logs the respective reputation log updates. Allowed to be called once per task. Secured function to authorised members."
-            },
             "finishUpgrade()": {
                 "notice": "A function to be called after an upgrade has been done from v2 to v3."
-            },
-            "generateSecret(bytes32,uint256)": {
-                "notice": "Helper function used to generage consistently the rating secret using salt value `_salt` and value to hide `_value`"
             },
             "getApproval(address,address,uint256)": {
                 "notice": "View an approval to obligate tokens."
@@ -7170,9 +6176,6 @@
             "getTaskCount()": {
                 "notice": "Get the number of tasks in the colony."
             },
-            "getTaskPayout(uint256,uint8,address)": {
-                "notice": "Get payout amount in `_token` denomination for role `_role` in task `_id`."
-            },
             "getTaskRole(uint256,uint8)": {
                 "notice": "Get the `Role` properties back for role `_role` in task `_id`."
             },
@@ -7230,9 +6233,6 @@
             "makeSingleArbitraryTransaction(address,bytes)": {
                 "notice": "Executes a single arbitrary transaction"
             },
-            "makeTask(uint256,uint256,bytes32,uint256,uint256,uint256)": {
-                "notice": "Make a new task in the colony. Secured function to authorised members."
-            },
             "mintTokens(uint256)": {
                 "notice": "Mint `_wad` amount of colony tokens. Secured function to authorised members."
             },
@@ -7266,20 +6266,8 @@
             "removeRecoveryRole(address)": {
                 "notice": "Remove colony recovery role. Can only be called by root role."
             },
-            "removeTaskEvaluatorRole(uint256)": {
-                "notice": "Removing evaluator role. Agreed between manager and currently assigned evaluator."
-            },
-            "removeTaskWorkerRole(uint256)": {
-                "notice": "Removing worker role. Agreed between manager and currently assigned worker."
-            },
-            "revealTaskWorkRating(uint256,uint8,uint8,bytes32)": {
-                "notice": "Reveal the secret rating submitted in `IColony.submitTaskWorkRating` for task `_id` and task role with id `_role`. Allowed within 5 days period starting which whichever is first from either both rating secrets being submitted (via `IColony.submitTaskWorkRating`) or the 5 day rating period expiring."
-            },
             "setAdministrationRole(uint256,uint256,address,uint256,bool)": {
                 "notice": "Set new colony admin role. Can be called by root role or architecture role."
-            },
-            "setAllTaskPayouts(uint256,address,uint256,uint256,uint256)": {
-                "notice": "Set `_token` payout for all roles in task `_id` to the respective amounts."
             },
             "setArbitrationRole(uint256,uint256,address,uint256,bool)": {
                 "notice": "Set new colony arbitration role. Can be called by root role or architecture role."
@@ -7338,15 +6326,6 @@
             "setNetworkFeeInverse(uint256)": {
                 "notice": "Set the Colony Network fee inverse amount."
             },
-            "setPaymentPayout(uint256,uint256,uint256,address,uint256)": {
-                "notice": "Sets the payout for a given token on an existing payment. Secured function to authorised members."
-            },
-            "setPaymentRecipient(uint256,uint256,uint256,address)": {
-                "notice": "Sets the recipient on an existing payment. Secured function to authorised members."
-            },
-            "setPaymentSkill(uint256,uint256,uint256,uint256)": {
-                "notice": "Sets the skill on an existing payment. Secured function to authorised members."
-            },
             "setPayoutWhitelist(address,bool)": {
                 "notice": "Set a token's status in the payout whitelist on the Colony Network"
             },
@@ -7365,47 +6344,11 @@
             "setStorageSlotRecovery(uint256,bytes32)": {
                 "notice": "Update value of arbitrary storage variable. Can only be called by user with recovery role."
             },
-            "setTaskBrief(uint256,bytes32)": {
-                "notice": "Set the hash for the task brief, aka task work specification, which identifies the task brief content in ddb. Allowed before a task is finalized."
-            },
-            "setTaskDueDate(uint256,uint256)": {
-                "notice": "Set the due date on task `_id`. Allowed before a task is finalized."
-            },
-            "setTaskEvaluatorPayout(uint256,address,uint256)": {
-                "notice": "Set `_token` payout for evaluator in task `_id` to `_amount`."
-            },
-            "setTaskEvaluatorRole(uint256,address)": {
-                "notice": "Assigning evaluator role. Can only be set if there is no one currently assigned to be an evaluator. Manager of the task and user we want to assign role to both need to agree. Managers can assign themselves to this role, if there is no one currently assigned to it."
-            },
-            "setTaskManagerPayout(uint256,address,uint256)": {
-                "notice": "Set `_token` payout for manager in task `_id` to `_amount`."
-            },
-            "setTaskManagerRole(uint256,address,uint256,uint256)": {
-                "notice": "Assigning manager role. Current manager and user we want to assign role to both need to agree. User we want to set here also needs to be an admin. Note that the domain proof data comes at the end here to not interfere with the assembly argument unpacking."
-            },
-            "setTaskSkill(uint256,uint256)": {
-                "notice": "Set the skill for task `_id`."
-            },
-            "setTaskWorkerPayout(uint256,address,uint256)": {
-                "notice": "Set `_token` payout for worker in task `_id` to `_amount`."
-            },
-            "setTaskWorkerRole(uint256,address)": {
-                "notice": "Assigning worker role. Can only be set if there is no one currently assigned to be a worker. Manager of the task and user we want to assign role to both need to agree."
-            },
             "setUserRoles(uint256,uint256,address,uint256,bytes32)": {
                 "notice": "Set several roles in one transaction. Can be called by root role or architecture role."
             },
             "startNextRewardPayout(address,bytes,bytes,uint256,bytes32[])": {
                 "notice": "Start next reward payout for `_token`. All funds in the reward pot for `_token` will become unavailable.Add a new payment in the colony. Can only be called by users with root permission. All tokens will be locked, and can be unlocked by calling `waiveRewardPayout` or `claimRewardPayout`."
-            },
-            "submitTaskDeliverable(uint256,bytes32)": {
-                "notice": "Submit the task deliverable, i.e. the output of the work performed for task `_id`. Submission is allowed only to the assigned worker before the task due date. Submissions cannot be overwritten."
-            },
-            "submitTaskDeliverableAndRating(uint256,bytes32,bytes32)": {
-                "notice": "Submit the task deliverable for Worker and rating for Manager."
-            },
-            "submitTaskWorkRating(uint256,uint8,bytes32)": {
-                "notice": "Submit a hashed secret of the rating for work in task `_id` which was performed by user with task role id `_role`. Allowed within 5 days period starting which whichever is first from either the deliverable being submitted or the dueDate been reached. Allowed only for evaluator to rate worker and for worker to rate manager performance. Once submitted ratings can not be changed or overwritten."
             },
             "transferExpenditure(uint256,address)": {
                 "notice": "Updates the expenditure owner. Can only be called by expenditure owner."

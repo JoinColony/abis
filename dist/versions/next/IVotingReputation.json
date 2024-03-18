@@ -714,6 +714,19 @@
                     "type": "uint256"
                 }
             ],
+            "name": "finalizeMotionWithoutFailure",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                }
+            ],
             "name": "failingExecutionAllowed",
             "outputs": [
                 {
@@ -1329,6 +1342,11 @@
                     "_motionId": "The id of the motion to finalize"
                 }
             },
+            "finalizeMotionWithoutFailure(uint256)": {
+                "params": {
+                    "_motionId": "The id of the motion to finalize"
+                }
+            },
             "getActionSummary(bytes,address)": {
                 "params": {
                     "_action": "The id of the motion",
@@ -1552,6 +1570,9 @@
             },
             "finalizeMotion(uint256)": {
                 "notice": "Finalized a motion, executing its action if appropriate"
+            },
+            "finalizeMotionWithoutFailure(uint256)": {
+                "notice": "Finalize a motion, executing its action if appropriate, without the call executing successfully"
             },
             "getActionSummary(bytes,address)": {
                 "notice": "Return a summary of the multicall action"
