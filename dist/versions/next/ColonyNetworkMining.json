@@ -30,6 +30,19 @@
             "anonymous": false,
             "inputs": [
                 {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "bridgeAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "BridgeSet",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
                     "indexed": true,
                     "internalType": "uint256",
                     "name": "colonyId",
@@ -412,6 +425,94 @@
                 {
                     "indexed": false,
                     "internalType": "uint256",
+                    "name": "chainId",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "colony",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "updateNumber",
+                    "type": "uint256"
+                }
+            ],
+            "name": "ReputationUpdateAddedFromBridge",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "colony",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "count",
+                    "type": "uint256"
+                }
+            ],
+            "name": "ReputationUpdateSentToBridge",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "colony",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "count",
+                    "type": "uint256"
+                }
+            ],
+            "name": "ReputationUpdateStored",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "chainId",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "colony",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "updateNumber",
+                    "type": "uint256"
+                }
+            ],
+            "name": "ReputationUpdateStoredFromBridge",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
                     "name": "skillId",
                     "type": "uint256"
                 },
@@ -423,6 +524,45 @@
                 }
             ],
             "name": "SkillAdded",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "skillId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "SkillAddedFromBridge",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "skillId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "SkillCreationStored",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "skillId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "SkillStoredFromBridge",
             "type": "event"
         },
         {
@@ -517,7 +657,7 @@
         },
         {
             "inputs": [],
-            "name": "getChainId",
+            "name": "getMiningChainId",
             "outputs": [
                 {
                     "internalType": "uint256",
@@ -731,6 +871,42 @@
             "inputs": [
                 {
                     "internalType": "bytes32",
+                    "name": "_newHash",
+                    "type": "bytes32"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_newNLeaves",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_nonce",
+                    "type": "uint256"
+                }
+            ],
+            "name": "setReputationRootHashFromBridge",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_chainId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "bridgeCurrentRootHash",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes32",
                     "name": "newHash",
                     "type": "bytes32"
                 },
@@ -751,7 +927,23 @@
             "type": "function"
         },
         {
-            "inputs": [],
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_reputationMiningChainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes32",
+                    "name": "_newHash",
+                    "type": "bytes32"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_newNLeaves",
+                    "type": "uint256"
+                }
+            ],
             "name": "initialiseReputationMining",
             "outputs": [],
             "stateMutability": "nonpayable",
@@ -804,7 +996,7 @@
                     "type": "uint256"
                 }
             ],
-            "stateMutability": "pure",
+            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -989,6 +1181,11 @@
                     "token": "Address of the token for auction"
                 }
             },
+            "BridgeSet(address)": {
+                "params": {
+                    "bridgeAddress": "The address of the bridge contract that will be interacted with"
+                }
+            },
             "ColonyAdded(uint256,address,address)": {
                 "details": "Emitted from `IColonyNetwork.createColony` function",
                 "params": {
@@ -1050,7 +1247,7 @@
             "MetaColonyCreated(address,address,uint256)": {
                 "params": {
                     "metaColony": "Address of the MetaColony instance (i.e. EtherRouter)",
-                    "rootSkillId": "Id of the root skill of the global skills tree, normally this is 2 Note that the speciat mining skill is created at rootSkillId + 1, so normally this is 3 Skill id 1 is normally the local skill associate with meta colony domain 1",
+                    "rootSkillId": "Id of the root skill of the global skills tree, normally this is 2 Note that the special mining skill is created at rootSkillId + 1, so normally this is 3 Skill id 1 is normally the local skill associate with meta colony domain 1",
                     "token": "Address of the associated CLNY token"
                 }
             },
@@ -1094,11 +1291,52 @@
                     "stakers": "Array of users who submitted or backed the hash accepted"
                 }
             },
+            "ReputationUpdateAddedFromBridge(uint256,address,uint256)": {
+                "params": {
+                    "chainId": "The chainId of the chain the bridge is associated with",
+                    "colony": "The address of the colony where reputation is being emitted",
+                    "updateNumber": "The number of the reputation update bridged in that colony"
+                }
+            },
+            "ReputationUpdateSentToBridge(address,uint256)": {
+                "params": {
+                    "colony": "The address of the colony where reputation is being emitted",
+                    "count": "The number of the reputation update trying to be bridged in that colony"
+                }
+            },
+            "ReputationUpdateStored(address,uint256)": {
+                "params": {
+                    "colony": "The address of the colony where reputation is being emitted",
+                    "count": "The number of the reputation update trying to be bridged in that colony"
+                }
+            },
+            "ReputationUpdateStoredFromBridge(uint256,address,uint256)": {
+                "params": {
+                    "chainId": "The chainId of the chain the bridge is associated with",
+                    "colony": "The address of the colony where reputation is being emitted",
+                    "updateNumber": "The number of the reputation update bridged in that colony"
+                }
+            },
             "SkillAdded(uint256,uint256)": {
                 "details": "Emitted from `IColonyNetwork.addSkill` function",
                 "params": {
                     "parentSkillId": "The id of the parent skill under which this new skill is added",
                     "skillId": "The skill id"
+                }
+            },
+            "SkillAddedFromBridge(uint256)": {
+                "params": {
+                    "skillId": "The skillId of the skill that was bridged"
+                }
+            },
+            "SkillCreationStored(uint256)": {
+                "params": {
+                    "skillId": "The skillId that failed to bridge"
+                }
+            },
+            "SkillStoredFromBridge(uint256)": {
+                "params": {
+                    "skillId": "The skillId of the skill that was bridged"
                 }
             },
             "TokenAuthorityDeployed(address)": {
@@ -1137,6 +1375,9 @@
         "events": {
             "AuctionCreated(address,address,uint256)": {
                 "notice": "Event logged when a new auction is created and started"
+            },
+            "BridgeSet(address)": {
+                "notice": "Event logged when the colony network has data about a bridge contract set."
             },
             "ColonyAdded(uint256,address,address)": {
                 "notice": "Event logged when a new colony is added"
@@ -1189,8 +1430,29 @@
             "ReputationRootHashSet(bytes32,uint256,address[],uint256)": {
                 "notice": "Event logged when a new reputation root hash is set by the reputation mining process"
             },
+            "ReputationUpdateAddedFromBridge(uint256,address,uint256)": {
+                "notice": "Event logged when a reputation update is successfully bridged."
+            },
+            "ReputationUpdateSentToBridge(address,uint256)": {
+                "notice": "Event logged when a reputation update makes it to the bridge."
+            },
+            "ReputationUpdateStored(address,uint256)": {
+                "notice": "Event logged when bridging of a reputation update did not succeed."
+            },
+            "ReputationUpdateStoredFromBridge(uint256,address,uint256)": {
+                "notice": "Event logged when a reputation update is received from a bridge, but can't be added to the reputation update log due to being bridged out of order or the skill not existing."
+            },
             "SkillAdded(uint256,uint256)": {
                 "notice": "Event logged when a new skill is added"
+            },
+            "SkillAddedFromBridge(uint256)": {
+                "notice": "Event logged when a skill is successfully added from a bridge."
+            },
+            "SkillCreationStored(uint256)": {
+                "notice": "Event logged when bridging of a skill creation did not succeed."
+            },
+            "SkillStoredFromBridge(uint256)": {
+                "notice": "Event logged when a skill is received from a bridge, but can't yet be added to the skill tree."
             },
             "TokenAuthorityDeployed(address)": {
                 "notice": "Event logged when a token authority is deployed via transaction through the colony network"

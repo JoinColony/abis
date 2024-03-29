@@ -73,7 +73,7 @@
             "glwss2": 8,
             "glwss4": 9,
             "hmwss": 10,
-            "next": 10
+            "next": 11
         },
         "OneTxPayment": {
             "clwss": 1,
@@ -82,7 +82,7 @@
             "glwss2": 4,
             "glwss4": 5,
             "hmwss": 6,
-            "next": 6
+            "next": 7
         },
         "ReputationBootstrapper": {
             "glwss2": 1,

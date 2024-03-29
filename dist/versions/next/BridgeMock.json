@@ -52,6 +52,19 @@
             "type": "event"
         },
         {
+            "inputs": [],
+            "name": "messageSender",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
             "inputs": [
                 {
                     "internalType": "address",
@@ -103,6 +116,19 @@
                 }
             ],
             "name": "execute",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bool",
+                    "name": "val",
+                    "type": "bool"
+                }
+            ],
+            "name": "setBridgeEnabled",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"

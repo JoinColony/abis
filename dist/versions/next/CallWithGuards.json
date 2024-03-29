@@ -1,5 +1,5 @@
 {
-    "contractName": "MultiChain",
+    "contractName": "CallWithGuards",
     "abi": [],
     "devdoc": {
         "kind": "dev",

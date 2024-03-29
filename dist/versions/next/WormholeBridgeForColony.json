@@ -1,0 +1,343 @@
+{
+    "contractName": "WormholeBridgeForColony",
+    "abi": [
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "internalType": "address",
+                    "name": "authority",
+                    "type": "address"
+                }
+            ],
+            "name": "LogSetAuthority",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "internalType": "address",
+                    "name": "owner",
+                    "type": "address"
+                }
+            ],
+            "name": "LogSetOwner",
+            "type": "event"
+        },
+        {
+            "inputs": [],
+            "name": "authority",
+            "outputs": [
+                {
+                    "internalType": "contract DSAuthority",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "evmChainIdToWormholeChainId",
+            "outputs": [
+                {
+                    "internalType": "uint16",
+                    "name": "",
+                    "type": "uint16"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "contract DSAuthority",
+                    "name": "authority_",
+                    "type": "address"
+                }
+            ],
+            "name": "setAuthority",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "owner_",
+                    "type": "address"
+                }
+            ],
+            "name": "setOwner",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "wormhole",
+            "outputs": [
+                {
+                    "internalType": "contract IWormhole",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256[]",
+                    "name": "evmChainIds",
+                    "type": "uint256[]"
+                },
+                {
+                    "internalType": "uint16[]",
+                    "name": "wormholeChainIds",
+                    "type": "uint16[]"
+                }
+            ],
+            "name": "setChainIdMapping",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_evmChainId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "supportedEvmChainId",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_wormhole",
+                    "type": "address"
+                }
+            ],
+            "name": "setWormholeAddress",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_colonyNetwork",
+                    "type": "address"
+                }
+            ],
+            "name": "setColonyNetworkAddress",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getColonyNetworkAddress",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "evmChainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_bridgeAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "setColonyBridgeAddress",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "evmChainId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getColonyBridgeAddress",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "_wormholeFormatAddress",
+                    "type": "bytes32"
+                }
+            ],
+            "name": "wormholeAddressToEVMAddress",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "pure",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes",
+                    "name": "_vaa",
+                    "type": "bytes"
+                }
+            ],
+            "name": "receiveMessage",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "evmChainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "payload",
+                    "type": "bytes"
+                }
+            ],
+            "name": "sendMessage",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ],
+    "devdoc": {
+        "kind": "dev",
+        "methods": {
+            "getColonyBridgeAddress(uint256)": {
+                "params": {
+                    "evmChainId": "The chain id to get the address for"
+                }
+            },
+            "getColonyNetworkAddress()": {
+                "returns": {
+                    "_0": "address The address of the colony network"
+                }
+            },
+            "sendMessage(uint256,bytes)": {
+                "params": {
+                    "evmChainId": "The chain id to send the message to",
+                    "payload": "The message payload"
+                },
+                "returns": {
+                    "_0": "bool Whether the message was sent successfully (to the best of the contract's knowledge, in terms of the underlying bridge implementation)"
+                }
+            },
+            "setColonyNetworkAddress(address)": {
+                "params": {
+                    "_colonyNetwork": "The address of the colony network"
+                }
+            },
+            "supportedEvmChainId(uint256)": {
+                "params": {
+                    "_evmChainId": "The chain id to check"
+                },
+                "returns": {
+                    "_0": "bool Whether the chain is supported"
+                }
+            }
+        },
+        "version": 1
+    },
+    "userdoc": {
+        "kind": "user",
+        "methods": {
+            "getColonyBridgeAddress(uint256)": {
+                "notice": "Function to get the address of the instance of this contract on other chains"
+            },
+            "getColonyNetworkAddress()": {
+                "notice": "Function to get the colony network address that the bridge is interacting with"
+            },
+            "sendMessage(uint256,bytes)": {
+                "notice": "Function to send a message to the colony bridge on another chain"
+            },
+            "setColonyNetworkAddress(address)": {
+                "notice": "Function to set the colony network address that the bridge will interact with"
+            },
+            "supportedEvmChainId(uint256)": {
+                "notice": "Function that checks whether a chain with the supplied evmChainId is supported"
+            }
+        },
+        "version": 1
+    }
+}

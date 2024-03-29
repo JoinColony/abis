@@ -4371,19 +4371,6 @@
             "inputs": [
                 {
                     "internalType": "uint256",
-                    "name": "_wad",
-                    "type": "uint256"
-                }
-            ],
-            "name": "mintTokensForColonyNetwork",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
                     "name": "_feeInverse",
                     "type": "uint256"
                 }
@@ -4456,6 +4443,42 @@
                 }
             ],
             "name": "addExtensionToNetwork",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_bridgeAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "setColonyBridgeAddress",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "miningChainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes32",
+                    "name": "newHash",
+                    "type": "bytes32"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "newNLeaves",
+                    "type": "uint256"
+                }
+            ],
+            "name": "initialiseReputationMining",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -5360,6 +5383,14 @@
                     "_token": "Address of the colony ERC20 Token"
                 }
             },
+            "initialiseReputationMining(uint256,bytes32,uint256)": {
+                "details": "Only callable from metacolony",
+                "params": {
+                    "miningChainId": "The chainId of the chain the mining cycle is being created on Can either be this chain or another chain, and the function will behave differently depending on which is the case.",
+                    "newHash": "The root hash of the reputation state tree",
+                    "newNLeaves": "The number of leaves in the state tree"
+                }
+            },
             "installExtension(bytes32,uint256)": {
                 "params": {
                     "extensionId": "keccak256 hash of the extension name, used as an indentifier",
@@ -5429,11 +5460,6 @@
                 "params": {
                     "_guy": "Recipient of new tokens",
                     "_wad": "Amount to mint"
-                }
-            },
-            "mintTokensForColonyNetwork(uint256)": {
-                "params": {
-                    "_wad": "Amount to mint and transfer to the colony network"
                 }
             },
             "moveFundsBetweenPots(uint256,uint256,uint256,uint256,uint256,uint256,address)": {
@@ -5523,6 +5549,11 @@
                     "_permissionDomainId": "Domain in which the caller has root/architecture role",
                     "_setTo": "The state of the role permission (true assign the permission, false revokes it)",
                     "_user": "User we want to give an architecture role to"
+                }
+            },
+            "setColonyBridgeAddress(address)": {
+                "params": {
+                    "_bridgeAddress": "The address of the bridge"
                 }
             },
             "setDefaultGlobalClaimDelay(uint256)": {
@@ -6206,6 +6237,9 @@
             "initialiseColony(address,address)": {
                 "notice": "Called once when the colony is created to initialise certain storage slot values."
             },
+            "initialiseReputationMining(uint256,bytes32,uint256)": {
+                "notice": "Creates initial inactive reputation mining cycle."
+            },
             "initialiseRootLocalSkill()": {
                 "notice": "Initialise the local skill tree for the colony."
             },
@@ -6238,9 +6272,6 @@
             },
             "mintTokensFor(address,uint256)": {
                 "notice": "Mint `_wad` amount of colony tokens and send to `_guy`. Secured function to authorised members."
-            },
-            "mintTokensForColonyNetwork(uint256)": {
-                "notice": "Mints CLNY in the Meta Colony and transfers them to the colony network. Only allowed to be called on the Meta Colony by the colony network."
             },
             "moveFundsBetweenPots(uint256,uint256,uint256,uint256,uint256,uint256,address)": {
                 "notice": "@deprecatedMove a given amount: `_amount` of `_token` funds from funding pot with id `_fromPot` to one with id `_toPot`."

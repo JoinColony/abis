@@ -1,0 +1,179 @@
+{
+    "contractName": "IColonyBridge",
+    "abi": [
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_evmChainId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "supportedEvmChainId",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_colonyNetwork",
+                    "type": "address"
+                }
+            ],
+            "name": "setColonyNetworkAddress",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getColonyNetworkAddress",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_evmChainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_colonyBridge",
+                    "type": "address"
+                }
+            ],
+            "name": "setColonyBridgeAddress",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "evmChainId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getColonyBridgeAddress",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "evmChainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "payload",
+                    "type": "bytes"
+                }
+            ],
+            "name": "sendMessage",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ],
+    "devdoc": {
+        "kind": "dev",
+        "methods": {
+            "getColonyBridgeAddress(uint256)": {
+                "params": {
+                    "evmChainId": "The chain id to get the address for"
+                }
+            },
+            "getColonyNetworkAddress()": {
+                "returns": {
+                    "_0": "address The address of the colony network"
+                }
+            },
+            "sendMessage(uint256,bytes)": {
+                "params": {
+                    "evmChainId": "The chain id to send the message to",
+                    "payload": "The message payload"
+                },
+                "returns": {
+                    "_0": "bool Whether the message was sent successfully (to the best of the contract's knowledge, in terms of the underlying bridge implementation)"
+                }
+            },
+            "setColonyBridgeAddress(uint256,address)": {
+                "params": {
+                    "_colonyBridge": "The address of the colony bridge contract on the other chain",
+                    "_evmChainId": "The chain id to set the address for"
+                }
+            },
+            "setColonyNetworkAddress(address)": {
+                "params": {
+                    "_colonyNetwork": "The address of the colony network"
+                }
+            },
+            "supportedEvmChainId(uint256)": {
+                "params": {
+                    "_evmChainId": "The chain id to check"
+                },
+                "returns": {
+                    "_0": "bool Whether the chain is supported"
+                }
+            }
+        },
+        "version": 1
+    },
+    "userdoc": {
+        "kind": "user",
+        "methods": {
+            "getColonyBridgeAddress(uint256)": {
+                "notice": "Function to get the address of the instance of this contract on other chains"
+            },
+            "getColonyNetworkAddress()": {
+                "notice": "Function to get the colony network address that the bridge is interacting with"
+            },
+            "sendMessage(uint256,bytes)": {
+                "notice": "Function to send a message to the colony bridge on another chain"
+            },
+            "setColonyBridgeAddress(uint256,address)": {
+                "notice": "Function to set the address of the instance of this contract on other chains, that this contract will expect to receive messages from"
+            },
+            "setColonyNetworkAddress(address)": {
+                "notice": "Function to set the colony network address that the bridge will interact with"
+            },
+            "supportedEvmChainId(uint256)": {
+                "notice": "Function that checks whether a chain with the supplied evmChainId is supported"
+            }
+        },
+        "version": 1
+    }
+}
