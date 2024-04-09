@@ -26,19 +26,9 @@ git submodule update --recursive
 npm ci
 ```
 
-Prepare the token submodule (and delete any existing build artifacts):
-
-```bash
-cd lib/colonyToken
-npm ci # again, make sure you're running the correct node version (with nvm)
-rm -rf build/contracts/*.json # to remove any prior builds
-git reset --hard # to recover the pinned (checked in) contracts
-npx truffle compile
-```
-
 You will need Docker installed and running to compile the contracts. It is however possible to disable Docker for the builds, see [here](https://docs.colony.io/colonynetwork/quick-start) for more information.
 
-Then back in the `vendor/colonyNetwork` submodule:
+Next do:
 
 ```bash
 rm -rf build/contracts/*.json # to remove any prior builds
