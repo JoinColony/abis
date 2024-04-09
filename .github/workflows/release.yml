@@ -1,0 +1,45 @@
+name: Create or add to release PR
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'recursive'
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'npm'
+
+      - name: Cache NPM dependencies
+        uses: actions/cache@v3
+        id: cache
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('pnpm-lock.yaml') }}
+
+      - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: pnpm install --frozen-lockfile
+
+      - name: Install dependencies for colonyNetwork
+        working-directory: ./vendor/colonyNetwork
+        run: npm ci
+
+      - name: Compile colonyNetwork contracts
+        working-directory: ./vendor/colonyNetwork
+        run: npx truffle compile
+
+      - run: npm run build
+
+      - uses: google-github-actions/release-please-action@v4
+        with:
+          release-type: node
