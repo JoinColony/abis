@@ -14,7 +14,12 @@ const DEPLOY_CONTRACTS = ['MetaTxToken', 'TokenAuthority'];
 
 const ARTIFACTS_DIR = resolvePath(
   __dirname,
-  '../vendor/colonyNetwork/build/contracts',
+  '../vendor/colonyNetwork/artifacts/contracts',
+);
+
+const ARTIFACTS_DIR_TOKEN = resolvePath(
+  __dirname,
+  '../vendor/colonyNetwork/artifacts/colonyToken',
 );
 
 const OUTPUT_DIR = resolvePath(__dirname, '../dist/versions');
@@ -76,28 +81,19 @@ const buildEventsAbis = async (tag: string) => {
 
 const extract = async () => {
   const { argv } = yargs(hideBin(process.argv)).options({
-    inputDir: { alias: 'i', type: 'string', default: ARTIFACTS_DIR },
     tag: { alias: 't', type: 'string', default: LATEST_TAG },
   });
 
   const args = await argv;
-  let { inputDir } = args;
   const { tag } = args;
 
-  if (inputDir !== ARTIFACTS_DIR) {
-    inputDir = resolvePath(process.cwd(), inputDir);
-  }
-  const inputDirToken = resolvePath(
-    inputDir,
-    '../../lib/colonyToken/build/contracts',
-  );
 
   const outputDir = resolvePath(OUTPUT_DIR, tag);
   await promisify(rimraf)(outputDir);
   mkdirpSync(outputDir);
 
-  const inputArtifacts = await fg(`${inputDir}/*.json`);
-  const inputTokenArtifacts = await fg(`${inputDirToken}/*.json`);
+  const inputArtifacts = await fg(`${ARTIFACTS_DIR}/**/!(*.dbg).json`);
+  const inputTokenArtifacts = await fg(`${ARTIFACTS_DIR_TOKEN}/**/!(*.dbg).json`);
   const inputFiles = inputArtifacts.concat(inputTokenArtifacts);
   inputFiles.forEach((file) => {
     const { abi, contractName, bytecode, devdoc, userdoc } = JSON.parse(

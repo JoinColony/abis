@@ -36,7 +36,7 @@ jobs:
 
       - name: Compile colonyNetwork contracts
         working-directory: ./vendor/colonyNetwork
-        run: npx truffle compile
+        run: npx hardhat compile
 
       - run: npm run build
 
