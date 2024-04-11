@@ -81,6 +81,9 @@
             "imwss": 11,
             "next": 11
         },
+        "MultisigPermissions": {
+          "next": 1
+        },
         "OneTxPayment": {
             "clwss": 1,
             "dlwss": 2,

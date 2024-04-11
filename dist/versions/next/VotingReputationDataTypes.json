@@ -207,15 +207,5 @@
             "name": "MotionVoteSubmitted",
             "type": "event"
         }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {},
-        "version": 1
-    },
-    "userdoc": {
-        "kind": "user",
-        "methods": {},
-        "version": 1
-    }
+    ]
 }

@@ -29,6 +29,19 @@
         {
             "inputs": [
                 {
+                    "internalType": "bool",
+                    "name": "_deprecated",
+                    "type": "bool"
+                }
+            ],
+            "name": "deprecate",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
                     "internalType": "address",
                     "name": "userAddress",
                     "type": "address"
@@ -66,6 +79,58 @@
             "type": "function"
         },
         {
+            "inputs": [],
+            "name": "finishUpgrade",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes4",
+                    "name": "_sig",
+                    "type": "bytes4"
+                }
+            ],
+            "name": "getCapabilityRoles",
+            "outputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "",
+                    "type": "bytes32"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getColony",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getDeprecated",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
             "inputs": [
                 {
                     "internalType": "address",
@@ -98,19 +163,6 @@
             "type": "function"
         },
         {
-            "inputs": [],
-            "name": "version",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "pure",
-            "type": "function"
-        },
-        {
             "inputs": [
                 {
                     "internalType": "address",
@@ -121,78 +173,6 @@
             "name": "install",
             "outputs": [],
             "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "finishUpgrade",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bool",
-                    "name": "_deprecated",
-                    "type": "bool"
-                }
-            ],
-            "name": "deprecate",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "uninstall",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes4",
-                    "name": "_sig",
-                    "type": "bytes4"
-                }
-            ],
-            "name": "getCapabilityRoles",
-            "outputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "",
-                    "type": "bytes32"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getDeprecated",
-            "outputs": [
-                {
-                    "internalType": "bool",
-                    "name": "",
-                    "type": "bool"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getColony",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -213,38 +193,26 @@
             ],
             "stateMutability": "nonpayable",
             "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "uninstall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "version",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "pure",
+            "type": "function"
         }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {
-            "executeMetaTransaction(address,bytes,bytes32,bytes32,uint8)": {
-                "params": {
-                    "payload": "The transaction data that will be executed if signature valid",
-                    "sigR": "The 'r' part of the signature",
-                    "sigS": "The 's' part of the signature",
-                    "sigV": "The 'v' part of the signature",
-                    "userAddress": "The address of the user that signed the metatransaction"
-                }
-            },
-            "getMetatransactionNonce(address)": {
-                "params": {
-                    "userAddress": "The address of the user that will sign the metatransaction"
-                }
-            }
-        },
-        "version": 1
-    },
-    "userdoc": {
-        "kind": "user",
-        "methods": {
-            "executeMetaTransaction(address,bytes,bytes32,bytes32,uint8)": {
-                "notice": "Executes a metatransaction targeting this contract"
-            },
-            "getMetatransactionNonce(address)": {
-                "notice": "Gets the next metatransaction nonce for user that should be used targeting this contract"
-            }
-        },
-        "version": 1
-    }
+    ]
 }

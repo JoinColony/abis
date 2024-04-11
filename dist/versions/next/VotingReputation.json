@@ -280,12 +280,103 @@
         {
             "inputs": [
                 {
+                    "internalType": "uint256",
+                    "name": "_domainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_childSkillIndex",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_altTarget",
+                    "type": "address"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "_action",
+                    "type": "bytes"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "_key",
+                    "type": "bytes"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "_value",
+                    "type": "bytes"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_branchMask",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes32[]",
+                    "name": "_siblings",
+                    "type": "bytes32[]"
+                }
+            ],
+            "name": "createMotion",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
                     "internalType": "bool",
                     "name": "_deprecated",
                     "type": "bool"
                 }
             ],
             "name": "deprecate",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_newDomainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_childSkillIndex",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "_key",
+                    "type": "bytes"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "_value",
+                    "type": "bytes"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_branchMask",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes32[]",
+                    "name": "_siblings",
+                    "type": "bytes32[]"
+                }
+            ],
+            "name": "escalateMotion",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -330,6 +421,51 @@
             "type": "function"
         },
         {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "failingExecutionAllowed",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "_allowed",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "finalizeMotion",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "finalizeMotionWithoutFailure",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
             "inputs": [],
             "name": "finishUpgrade",
             "outputs": [],
@@ -338,6 +474,16 @@
         },
         {
             "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "colonyNetworkAddress",
+                    "type": "address"
+                },
+                {
+                    "internalType": "address",
+                    "name": "colonyAddress",
+                    "type": "address"
+                },
                 {
                     "internalType": "bytes",
                     "name": "_action",
@@ -367,9 +513,14 @@
                             "internalType": "uint256",
                             "name": "expenditureId",
                             "type": "uint256"
+                        },
+                        {
+                            "internalType": "bytes32",
+                            "name": "requiredPermissions",
+                            "type": "bytes32"
                         }
                     ],
-                    "internalType": "struct VotingReputationDataTypes.ActionSummary",
+                    "internalType": "struct ActionSummary",
                     "name": "",
                     "type": "tuple"
                 }
@@ -391,19 +542,6 @@
                     "internalType": "bytes32",
                     "name": "",
                     "type": "bytes32"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getChainId",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
                 }
             ],
             "stateMutability": "view",
@@ -436,6 +574,108 @@
             "type": "function"
         },
         {
+            "inputs": [],
+            "name": "getEscalationPeriod",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_period",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "_structHash",
+                    "type": "bytes32"
+                }
+            ],
+            "name": "getExpenditureMotionCount",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_count",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_expenditureId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getExpenditureMotionLock",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_expenditureId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getExpenditurePastVote",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_vote",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "_slotSignature",
+                    "type": "bytes32"
+                }
+            ],
+            "name": "getExpenditurePastVotes_DEPRECATED",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_vote",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getMaxVoteFraction",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_fraction",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
             "inputs": [
                 {
                     "internalType": "address",
@@ -448,6 +688,115 @@
                 {
                     "internalType": "uint256",
                     "name": "_nonce",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getMotion",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "internalType": "uint64[3]",
+                            "name": "events",
+                            "type": "uint64[3]"
+                        },
+                        {
+                            "internalType": "bytes32",
+                            "name": "rootHash",
+                            "type": "bytes32"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "domainId",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "skillId",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "skillRep",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "repSubmitted",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "paidVoterComp",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256[2]",
+                            "name": "pastVoterComp",
+                            "type": "uint256[2]"
+                        },
+                        {
+                            "internalType": "uint256[2]",
+                            "name": "stakes",
+                            "type": "uint256[2]"
+                        },
+                        {
+                            "internalType": "uint256[2]",
+                            "name": "votes",
+                            "type": "uint256[2]"
+                        },
+                        {
+                            "internalType": "bool",
+                            "name": "escalated",
+                            "type": "bool"
+                        },
+                        {
+                            "internalType": "bool",
+                            "name": "finalized",
+                            "type": "bool"
+                        },
+                        {
+                            "internalType": "address",
+                            "name": "altTarget",
+                            "type": "address"
+                        },
+                        {
+                            "internalType": "bytes4",
+                            "name": "sig",
+                            "type": "bytes4"
+                        },
+                        {
+                            "internalType": "bytes",
+                            "name": "action",
+                            "type": "bytes"
+                        }
+                    ],
+                    "internalType": "struct VotingReputationDataTypes.Motion",
+                    "name": "_motion",
+                    "type": "tuple"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getMotionCount",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_count",
                     "type": "uint256"
                 }
             ],
@@ -475,6 +824,203 @@
         },
         {
             "inputs": [],
+            "name": "getRevealPeriod",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_period",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "colonyNetworkAddress",
+                    "type": "address"
+                },
+                {
+                    "internalType": "address",
+                    "name": "colonyAddress",
+                    "type": "address"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "_action",
+                    "type": "bytes"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_altTarget",
+                    "type": "address"
+                }
+            ],
+            "name": "getSingleActionSummary",
+            "outputs": [
+                {
+                    "components": [
+                        {
+                            "internalType": "bytes4",
+                            "name": "sig",
+                            "type": "bytes4"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "domainSkillId",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "expenditureId",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "bytes32",
+                            "name": "requiredPermissions",
+                            "type": "bytes32"
+                        }
+                    ],
+                    "internalType": "struct ActionSummary",
+                    "name": "",
+                    "type": "tuple"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_staker",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_vote",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getStake",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_stake",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getStakePeriod",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_period",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getSubmitPeriod",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_period",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getTotalStakeFraction",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_fraction",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getUserMinStakeFraction",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_fraction",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getVoterRewardFraction",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_fraction",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_voterRep",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_voterAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "getVoterRewardRange",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_rewardMin",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_rewardMax",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
             "name": "identifier",
             "outputs": [
                 {
@@ -484,6 +1030,54 @@
                 }
             ],
             "stateMutability": "pure",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_totalStakeFraction",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_voterRewardFraction",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_userMinStakeFraction",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_maxVoteFraction",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_stakePeriod",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_submitPeriod",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_revealPeriod",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_escalationPeriod",
+                    "type": "uint256"
+                }
+            ],
+            "name": "initialise",
+            "outputs": [],
+            "stateMutability": "nonpayable",
             "type": "function"
         },
         {
@@ -625,671 +1219,6 @@
             ],
             "stateMutability": "pure",
             "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_totalStakeFraction",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_voterRewardFraction",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_userMinStakeFraction",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_maxVoteFraction",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_stakePeriod",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_submitPeriod",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_revealPeriod",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_escalationPeriod",
-                    "type": "uint256"
-                }
-            ],
-            "name": "initialise",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_domainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_childSkillIndex",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_altTarget",
-                    "type": "address"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_action",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_key",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_value",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_branchMask",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes32[]",
-                    "name": "_siblings",
-                    "type": "bytes32[]"
-                }
-            ],
-            "name": "createMotion",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_voteSecret",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_key",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_value",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_branchMask",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes32[]",
-                    "name": "_siblings",
-                    "type": "bytes32[]"
-                }
-            ],
-            "name": "submitVote",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_salt",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_vote",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_key",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_value",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_branchMask",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes32[]",
-                    "name": "_siblings",
-                    "type": "bytes32[]"
-                }
-            ],
-            "name": "revealVote",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_newDomainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_childSkillIndex",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_key",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_value",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_branchMask",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes32[]",
-                    "name": "_siblings",
-                    "type": "bytes32[]"
-                }
-            ],
-            "name": "escalateMotion",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "finalizeMotion",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "finalizeMotionWithoutFailure",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "failingExecutionAllowed",
-            "outputs": [
-                {
-                    "internalType": "bool",
-                    "name": "_allowed",
-                    "type": "bool"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getTotalStakeFraction",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_fraction",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getVoterRewardFraction",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_fraction",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getUserMinStakeFraction",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_fraction",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getMaxVoteFraction",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_fraction",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getStakePeriod",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_period",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getSubmitPeriod",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_period",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getRevealPeriod",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_period",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getEscalationPeriod",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_period",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getMotionCount",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_count",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getMotion",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "uint64[3]",
-                            "name": "events",
-                            "type": "uint64[3]"
-                        },
-                        {
-                            "internalType": "bytes32",
-                            "name": "rootHash",
-                            "type": "bytes32"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "domainId",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "skillId",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "skillRep",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "repSubmitted",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "paidVoterComp",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256[2]",
-                            "name": "pastVoterComp",
-                            "type": "uint256[2]"
-                        },
-                        {
-                            "internalType": "uint256[2]",
-                            "name": "stakes",
-                            "type": "uint256[2]"
-                        },
-                        {
-                            "internalType": "uint256[2]",
-                            "name": "votes",
-                            "type": "uint256[2]"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "escalated",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "bool",
-                            "name": "finalized",
-                            "type": "bool"
-                        },
-                        {
-                            "internalType": "address",
-                            "name": "altTarget",
-                            "type": "address"
-                        },
-                        {
-                            "internalType": "bytes4",
-                            "name": "sig",
-                            "type": "bytes4"
-                        },
-                        {
-                            "internalType": "bytes",
-                            "name": "action",
-                            "type": "bytes"
-                        }
-                    ],
-                    "internalType": "struct VotingReputationDataTypes.Motion",
-                    "name": "_motion",
-                    "type": "tuple"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_staker",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_vote",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getStake",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_stake",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "_structHash",
-                    "type": "bytes32"
-                }
-            ],
-            "name": "getExpenditureMotionCount",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_count",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_expenditureId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getExpenditureMotionLock",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_expenditureId",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getExpenditurePastVote",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_vote",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "_slotSignature",
-                    "type": "bytes32"
-                }
-            ],
-            "name": "getExpenditurePastVotes_DEPRECATED",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_vote",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_voterRep",
-                    "type": "uint256"
-                }
-            ],
-            "name": "getVoterReward",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_reward",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_voterRep",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_voterAddress",
-                    "type": "address"
-                }
-            ],
-            "name": "getVoterRewardRange",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_rewardMin",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_rewardMax",
-                    "type": "uint256"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
         }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {
-            "executeMetaTransaction(address,bytes,bytes32,bytes32,uint8)": {
-                "params": {
-                    "_payload": "Function call to make via meta transaction",
-                    "_sigR": "R part of the signature",
-                    "_sigS": "S part of the signature",
-                    "_sigV": "V part of the signature",
-                    "_user": "Address of user trying to do meta transaction"
-                }
-            }
-        },
-        "version": 1
-    },
-    "userdoc": {
-        "kind": "user",
-        "methods": {
-            "executeMetaTransaction(address,bytes,bytes32,bytes32,uint8)": {
-                "notice": "Main function to be called when user wants to execute meta transaction. The actual function to be called should be passed as param with name functionSignature Here the basic signature recovery is being used. Signature is expected to be generated using personal_sign method."
-            }
-        },
-        "version": 1
-    }
+    ]
 }

@@ -219,23 +219,5 @@
             "name": "ReputationRootHashSubmitted",
             "type": "event"
         }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {},
-        "version": 1
-    },
-    "userdoc": {
-        "events": {
-            "ProveUIDSuccess(uint256,uint256,bool)": {
-                "notice": "Event logged when a reputation UID is proven to be correct in a challenge"
-            },
-            "ProveValueSuccess(int256,int256,int256)": {
-                "notice": "Event logged when a reputation value is proven to be correct in a challenge"
-            }
-        },
-        "kind": "user",
-        "methods": {},
-        "version": 1
-    }
+    ]
 }

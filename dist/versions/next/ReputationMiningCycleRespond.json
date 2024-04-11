@@ -284,45 +284,6 @@
         },
         {
             "inputs": [],
-            "name": "owner",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "contract DSAuthority",
-                    "name": "authority_",
-                    "type": "address"
-                }
-            ],
-            "name": "setAuthority",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "owner_",
-                    "type": "address"
-                }
-            ],
-            "name": "setOwner",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
             "name": "getDecayConstant",
             "outputs": [
                 {
@@ -337,6 +298,19 @@
                 }
             ],
             "stateMutability": "pure",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "owner",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -386,24 +360,32 @@
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
-        }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {},
-        "version": 1
-    },
-    "userdoc": {
-        "events": {
-            "ProveUIDSuccess(uint256,uint256,bool)": {
-                "notice": "Event logged when a reputation UID is proven to be correct in a challenge"
-            },
-            "ProveValueSuccess(int256,int256,int256)": {
-                "notice": "Event logged when a reputation value is proven to be correct in a challenge"
-            }
         },
-        "kind": "user",
-        "methods": {},
-        "version": 1
-    }
+        {
+            "inputs": [
+                {
+                    "internalType": "contract DSAuthority",
+                    "name": "authority_",
+                    "type": "address"
+                }
+            ],
+            "name": "setAuthority",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "owner_",
+                    "type": "address"
+                }
+            ],
+            "name": "setOwner",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ]
 }

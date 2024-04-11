@@ -247,6 +247,39 @@
             "type": "function"
         },
         {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_motionId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_permissionDomainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_childSkillIndex",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_staker",
+                    "type": "address"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_vote",
+                    "type": "uint256"
+                }
+            ],
+            "name": "claimMisalignedReward",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
             "inputs": [],
             "name": "owner",
             "outputs": [
@@ -284,63 +317,6 @@
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_motionId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_permissionDomainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_childSkillIndex",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_staker",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_vote",
-                    "type": "uint256"
-                }
-            ],
-            "name": "claimMisalignedReward",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
         }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {
-            "claimMisalignedReward(uint256,uint256,uint256,address,uint256)": {
-                "params": {
-                    "_childSkillIndex": "For the domain in which the motion is occurring",
-                    "_motionId": "The id of the motion",
-                    "_permissionDomainId": "The domain where the extension has the arbitration permission",
-                    "_staker": "The staker whose reward is being claimed",
-                    "_vote": "The side being supported (0 = NAY, 1 = YAY)"
-                }
-            }
-        },
-        "version": 1
-    },
-    "userdoc": {
-        "kind": "user",
-        "methods": {
-            "claimMisalignedReward(uint256,uint256,uint256,address,uint256)": {
-                "notice": "Claim the staker's reward"
-            }
-        },
-        "version": 1
-    }
+    ]
 }

@@ -41,6 +41,25 @@
             "type": "function"
         },
         {
+            "inputs": [
+                {
+                    "internalType": "bytes4",
+                    "name": "sig",
+                    "type": "bytes4"
+                }
+            ],
+            "name": "lookup",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
             "inputs": [],
             "name": "owner",
             "outputs": [
@@ -75,6 +94,24 @@
         {
             "inputs": [
                 {
+                    "internalType": "string",
+                    "name": "signature",
+                    "type": "string"
+                },
+                {
+                    "internalType": "address",
+                    "name": "destination",
+                    "type": "address"
+                }
+            ],
+            "name": "register",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
                     "internalType": "contract DSAuthority",
                     "name": "authority_",
                     "type": "address"
@@ -104,43 +141,6 @@
                     "internalType": "string",
                     "name": "signature",
                     "type": "string"
-                },
-                {
-                    "internalType": "address",
-                    "name": "destination",
-                    "type": "address"
-                }
-            ],
-            "name": "register",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes4",
-                    "name": "sig",
-                    "type": "bytes4"
-                }
-            ],
-            "name": "lookup",
-            "outputs": [
-                {
-                    "internalType": "address",
-                    "name": "",
-                    "type": "address"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "string",
-                    "name": "signature",
-                    "type": "string"
                 }
             ],
             "name": "stringToSig",
@@ -154,15 +154,5 @@
             "stateMutability": "pure",
             "type": "function"
         }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {},
-        "version": 1
-    },
-    "userdoc": {
-        "kind": "user",
-        "methods": {},
-        "version": 1
-    }
+    ]
 }

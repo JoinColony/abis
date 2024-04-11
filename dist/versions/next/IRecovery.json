@@ -92,6 +92,26 @@
         },
         {
             "inputs": [],
+            "name": "approveExitRecovery",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_slot",
+                    "type": "uint256"
+                }
+            ],
+            "name": "checkNotAdditionalProtectedVariable",
+            "outputs": [],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
             "name": "enterRecoveryMode",
             "outputs": [],
             "stateMutability": "nonpayable",
@@ -100,13 +120,6 @@
         {
             "inputs": [],
             "name": "exitRecoveryMode",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "approveExitRecovery",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -125,16 +138,16 @@
             "type": "function"
         },
         {
-            "inputs": [
+            "inputs": [],
+            "name": "numRecoveryRoles",
+            "outputs": [
                 {
-                    "internalType": "address",
-                    "name": "_user",
-                    "type": "address"
+                    "internalType": "uint64",
+                    "name": "numRoles",
+                    "type": "uint64"
                 }
             ],
-            "name": "setRecoveryRole",
-            "outputs": [],
-            "stateMutability": "nonpayable",
+            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -151,16 +164,16 @@
             "type": "function"
         },
         {
-            "inputs": [],
-            "name": "numRecoveryRoles",
-            "outputs": [
+            "inputs": [
                 {
-                    "internalType": "uint64",
-                    "name": "numRoles",
-                    "type": "uint64"
+                    "internalType": "address",
+                    "name": "_user",
+                    "type": "address"
                 }
             ],
-            "stateMutability": "view",
+            "name": "setRecoveryRole",
+            "outputs": [],
+            "stateMutability": "nonpayable",
             "type": "function"
         },
         {
@@ -180,139 +193,6 @@
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_slot",
-                    "type": "uint256"
-                }
-            ],
-            "name": "checkNotAdditionalProtectedVariable",
-            "outputs": [],
-            "stateMutability": "view",
-            "type": "function"
         }
-    ],
-    "devdoc": {
-        "events": {
-            "RecoveryModeEntered(address)": {
-                "params": {
-                    "user": "The address that triggered recovery mode"
-                }
-            },
-            "RecoveryModeExitApproved(address)": {
-                "params": {
-                    "user": "The address signalling they are happy with the state"
-                }
-            },
-            "RecoveryModeExited(address)": {
-                "params": {
-                    "user": "The address that left recovery mode"
-                }
-            },
-            "RecoveryRoleSet(address,bool)": {
-                "params": {
-                    "setTo": "The boolean indicating whether the role is being granted or revoked",
-                    "user": "The address being modified"
-                }
-            },
-            "RecoveryStorageSlotSet(address,uint256,bytes32,bytes32)": {
-                "params": {
-                    "fromValue": "The value the storage slot had before this transaction",
-                    "slot": "The storage slot being modified",
-                    "toValue": "The value the storage slot has after this transaction",
-                    "user": "The address that set the storage slot"
-                }
-            }
-        },
-        "kind": "dev",
-        "methods": {
-            "checkNotAdditionalProtectedVariable(uint256)": {
-                "details": "No return value, but should throw if protected.This is external, but is only expected to be called from ContractRecovery; no need toexpose this to any users.",
-                "params": {
-                    "_slot": "The storage slot number to check."
-                }
-            },
-            "isInRecoveryMode()": {
-                "returns": {
-                    "inRecoveryMode": "Return true if recovery mode is active, false otherwise"
-                }
-            },
-            "numRecoveryRoles()": {
-                "returns": {
-                    "numRoles": "Number of users with the recovery role."
-                }
-            },
-            "removeRecoveryRole(address)": {
-                "params": {
-                    "_user": "User we want to remove recovery role from"
-                }
-            },
-            "setRecoveryRole(address)": {
-                "params": {
-                    "_user": "User we want to give a recovery role to"
-                }
-            },
-            "setStorageSlotRecovery(uint256,bytes32)": {
-                "details": "certain critical variables are protected from editing in this function",
-                "params": {
-                    "_slot": "Uint address of storage slot to be updated",
-                    "_value": "word of data to be set"
-                }
-            }
-        },
-        "version": 1
-    },
-    "userdoc": {
-        "events": {
-            "RecoveryModeEntered(address)": {
-                "notice": "Event logged when recovery mode is triggered."
-            },
-            "RecoveryModeExitApproved(address)": {
-                "notice": "Event logged when someone with recovery mode signals they are happy with the state and wish to leave recovery mode"
-            },
-            "RecoveryModeExited(address)": {
-                "notice": "Event logged when recovery mode is left"
-            },
-            "RecoveryRoleSet(address,bool)": {
-                "notice": "Event logged when user gets/loses the recovery role."
-            },
-            "RecoveryStorageSlotSet(address,uint256,bytes32,bytes32)": {
-                "notice": "Event logged when in recovery mode a storage slot is set"
-            }
-        },
-        "kind": "user",
-        "methods": {
-            "approveExitRecovery()": {
-                "notice": "Indicate approval to exit recovery mode. Can only be called by user with recovery role."
-            },
-            "checkNotAdditionalProtectedVariable(uint256)": {
-                "notice": "Check whether the supplied slot is a protected variable specific to this contract"
-            },
-            "enterRecoveryMode()": {
-                "notice": "Put colony network mining into recovery mode. Can only be called by user with recovery role."
-            },
-            "exitRecoveryMode()": {
-                "notice": "Exit recovery mode, can be called by anyone if enough whitelist approvals are given."
-            },
-            "isInRecoveryMode()": {
-                "notice": "Is colony network in recovery mode."
-            },
-            "numRecoveryRoles()": {
-                "notice": "Return number of recovery roles."
-            },
-            "removeRecoveryRole(address)": {
-                "notice": "Remove colony recovery role. Can only be called by root role."
-            },
-            "setRecoveryRole(address)": {
-                "notice": "Set new colony recovery role. Can be called by root."
-            },
-            "setStorageSlotRecovery(uint256,bytes32)": {
-                "notice": "Update value of arbitrary storage variable. Can only be called by user with recovery role."
-            }
-        },
-        "version": 1
-    }
+    ]
 }

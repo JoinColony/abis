@@ -89,83 +89,6 @@
                     "internalType": "bytes32",
                     "name": "node",
                     "type": "bytes32"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "label",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "address",
-                    "name": "owner",
-                    "type": "address"
-                }
-            ],
-            "name": "setSubnodeOwner",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "node",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "address",
-                    "name": "resolver",
-                    "type": "address"
-                }
-            ],
-            "name": "setResolver",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "node",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "address",
-                    "name": "owner",
-                    "type": "address"
-                }
-            ],
-            "name": "setOwner",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "node",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "uint64",
-                    "name": "ttl",
-                    "type": "uint64"
-                }
-            ],
-            "name": "setTTL",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "node",
-                    "type": "bytes32"
                 }
             ],
             "name": "owner",
@@ -204,6 +127,83 @@
                     "internalType": "bytes32",
                     "name": "node",
                     "type": "bytes32"
+                },
+                {
+                    "internalType": "address",
+                    "name": "owner",
+                    "type": "address"
+                }
+            ],
+            "name": "setOwner",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "node",
+                    "type": "bytes32"
+                },
+                {
+                    "internalType": "address",
+                    "name": "resolver",
+                    "type": "address"
+                }
+            ],
+            "name": "setResolver",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "node",
+                    "type": "bytes32"
+                },
+                {
+                    "internalType": "bytes32",
+                    "name": "label",
+                    "type": "bytes32"
+                },
+                {
+                    "internalType": "address",
+                    "name": "owner",
+                    "type": "address"
+                }
+            ],
+            "name": "setSubnodeOwner",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "node",
+                    "type": "bytes32"
+                },
+                {
+                    "internalType": "uint64",
+                    "name": "ttl",
+                    "type": "uint64"
+                }
+            ],
+            "name": "setTTL",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "node",
+                    "type": "bytes32"
                 }
             ],
             "name": "ttl",
@@ -217,15 +217,5 @@
             "stateMutability": "view",
             "type": "function"
         }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {},
-        "version": 1
-    },
-    "userdoc": {
-        "kind": "user",
-        "methods": {},
-        "version": 1
-    }
+    ]
 }

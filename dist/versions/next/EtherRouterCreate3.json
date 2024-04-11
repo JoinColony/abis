@@ -1,5 +1,5 @@
 {
-    "contractName": "DSAuth",
+    "contractName": "EtherRouterCreate3",
     "abi": [
         {
             "inputs": [],
@@ -33,6 +33,10 @@
             "type": "event"
         },
         {
+            "stateMutability": "payable",
+            "type": "fallback"
+        },
+        {
             "inputs": [],
             "name": "authority",
             "outputs": [
@@ -59,6 +63,32 @@
             "type": "function"
         },
         {
+            "inputs": [],
+            "name": "resolver",
+            "outputs": [
+                {
+                    "internalType": "contract Resolver",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "contract DSAuthority",
+                    "name": "authority_",
+                    "type": "address"
+                }
+            ],
+            "name": "setAuthority",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
             "inputs": [
                 {
                     "internalType": "address",
@@ -74,25 +104,15 @@
         {
             "inputs": [
                 {
-                    "internalType": "contract DSAuthority",
-                    "name": "authority_",
+                    "internalType": "address",
+                    "name": "_resolver",
                     "type": "address"
                 }
             ],
-            "name": "setAuthority",
+            "name": "setResolver",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
         }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {},
-        "version": 1
-    },
-    "userdoc": {
-        "kind": "user",
-        "methods": {},
-        "version": 1
-    }
+    ]
 }
