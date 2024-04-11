@@ -67,11 +67,34 @@
                     "internalType": "uint256",
                     "name": "_gasLimit",
                     "type": "uint256"
+                },
+                {
+                    "internalType": "bytes32",
+                    "name": "_messageId",
+                    "type": "bytes32"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_sender",
+                    "type": "address"
                 }
             ],
-            "name": "requireToPassMessage",
+            "name": "execute",
             "outputs": [],
             "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "messageSender",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
             "type": "function"
         },
         {
@@ -90,32 +113,25 @@
                     "internalType": "uint256",
                     "name": "_gasLimit",
                     "type": "uint256"
-                },
-                {
-                    "internalType": "bytes32",
-                    "name": "_messageId",
-                    "type": "bytes32"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_sender",
-                    "type": "address"
                 }
             ],
-            "name": "execute",
+            "name": "requireToPassMessage",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "bool",
+                    "name": "val",
+                    "type": "bool"
+                }
+            ],
+            "name": "setBridgeEnabled",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
         }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {},
-        "version": 1
-    },
-    "userdoc": {
-        "kind": "user",
-        "methods": {},
-        "version": 1
-    }
+    ]
 }
