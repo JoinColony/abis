@@ -1,1 +1,0 @@
-{"contractName":"ZodiacBridgeModuleMock","abi":[{"anonymous":false,"inputs":[{"indexed":false,"internalType":"bool","name":"success","type":"bool"}],"name":"SafeTransactionExecuted","type":"event"}]}
