@@ -74,6 +74,19 @@
         {
             "inputs": [
                 {
+                    "internalType": "bool",
+                    "name": "_deprecated",
+                    "type": "bool"
+                }
+            ],
+            "name": "deprecate",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
                     "internalType": "address",
                     "name": "_user",
                     "type": "address"
@@ -111,6 +124,26 @@
             "type": "function"
         },
         {
+            "inputs": [],
+            "name": "finishUpgrade",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "a",
+                    "type": "uint256"
+                }
+            ],
+            "name": "fun",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
             "inputs": [
                 {
                     "internalType": "bytes4",
@@ -124,19 +157,6 @@
                     "internalType": "bytes32",
                     "name": "",
                     "type": "bytes32"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "getChainId",
-            "outputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "",
-                    "type": "uint256"
                 }
             ],
             "stateMutability": "view",
@@ -185,6 +205,32 @@
                 }
             ],
             "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "identifier",
+            "outputs": [
+                {
+                    "internalType": "bytes32",
+                    "name": "",
+                    "type": "bytes32"
+                }
+            ],
+            "stateMutability": "pure",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_colony",
+                    "type": "address"
+                }
+            ],
+            "name": "install",
+            "outputs": [],
+            "stateMutability": "nonpayable",
             "type": "function"
         },
         {
@@ -246,6 +292,13 @@
             "type": "function"
         },
         {
+            "inputs": [],
+            "name": "uninstall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
             "inputs": [
                 {
                     "internalType": "address",
@@ -296,19 +349,6 @@
         },
         {
             "inputs": [],
-            "name": "identifier",
-            "outputs": [
-                {
-                    "internalType": "bytes32",
-                    "name": "",
-                    "type": "bytes32"
-                }
-            ],
-            "stateMutability": "pure",
-            "type": "function"
-        },
-        {
-            "inputs": [],
             "name": "version",
             "outputs": [
                 {
@@ -319,106 +359,6 @@
             ],
             "stateMutability": "pure",
             "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_colony",
-                    "type": "address"
-                }
-            ],
-            "name": "install",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "finishUpgrade",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "bool",
-                    "name": "_deprecated",
-                    "type": "bool"
-                }
-            ],
-            "name": "deprecate",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "uninstall",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "a",
-                    "type": "uint256"
-                }
-            ],
-            "name": "fun",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
         }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {
-            "executeMetaTransaction(address,bytes,bytes32,bytes32,uint8)": {
-                "params": {
-                    "_payload": "Function call to make via meta transaction",
-                    "_sigR": "R part of the signature",
-                    "_sigS": "S part of the signature",
-                    "_sigV": "V part of the signature",
-                    "_user": "Address of user trying to do meta transaction"
-                }
-            },
-            "install(address)": {
-                "params": {
-                    "_colony": "The colony in which the extension holds permissions"
-                }
-            }
-        },
-        "version": 1
-    },
-    "userdoc": {
-        "kind": "user",
-        "methods": {
-            "deprecate(bool)": {
-                "notice": "Called when deprecating (or undeprecating) the extension"
-            },
-            "executeMetaTransaction(address,bytes,bytes32,bytes32,uint8)": {
-                "notice": "Main function to be called when user wants to execute meta transaction. The actual function to be called should be passed as param with name functionSignature Here the basic signature recovery is being used. Signature is expected to be generated using personal_sign method."
-            },
-            "finishUpgrade()": {
-                "notice": "Called when upgrading the extension"
-            },
-            "identifier()": {
-                "notice": "Returns the identifier of the extension"
-            },
-            "install(address)": {
-                "notice": "Configures the extension"
-            },
-            "uninstall()": {
-                "notice": "Called when uninstalling the extension"
-            },
-            "version()": {
-                "notice": "Returns the version of the extension"
-            }
-        },
-        "version": 1
-    }
+    ]
 }
