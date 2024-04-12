@@ -3,6 +3,11 @@ name: Release a snapshot
 on:
   # Only manual workflow trigger
   workflow_dispatch:
+    inputs:
+      colonyNetworkHead:
+        description: 'colonyNetwork tag, branch or hash'
+        required: false
+        default: 'develop'
 
 jobs:
   build:
@@ -13,11 +18,16 @@ jobs:
         with:
           submodules: 'recursive'
 
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8.15.6
+
       - name: Setup node
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Cache NPM dependencies
         uses: actions/cache@v4
@@ -30,6 +40,10 @@ jobs:
         if: steps.cache.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
 
+      - name: Checkout the desired colonyNetwork tag or branch
+        working-directory: ./vendor/colonyNetwork
+        run: git fetch && git checkout ${{ github.event.inputs.colonyNetworkHead }}
+
       - name: Install dependencies for colonyNetwork
         working-directory: ./vendor/colonyNetwork
         run: npm ci
@@ -38,4 +52,19 @@ jobs:
         working-directory: ./vendor/colonyNetwork
         run: npx hardhat compile
 
-      - run: npm run build
+      - run: pnpm run build
+
+      - run: pnpm test
+
+      - run: ls dist/versions/${{ github.event.inputs.colonyNetworkHead }} || ls dist/versions/next
+
+      - name: Generate version hash
+        id: version_hash
+        run: echo "VERSION_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+      - name: Publish package
+        run: |
+          npm version 0.0.0-snapshot-${{ env.VERSION_HASH }} --no-git-tag-version
+          npm publish --access public --tag snapshot
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

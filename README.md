@@ -43,3 +43,12 @@ npm run build -- -t=glwss
 ```
 
 That process should be fairly quick. A directory called `abis/glwss` should have been created, containing all the required ABIs for the next version (and more).
+
+## Creating a snapshot release (automates the above workflow)
+
+A snapshot can be created using GitHub actions:
+
+1) Create a new branch and adjust `versions.json` to the versions according to the colonyNetwork tag/branch you want to build
+2) Go to Actions within GitHub and select the "Release a snapshot" action.
+3) Click "Run workflow" on the right and select the branch you just created as well as the colonyNetwork tag or branch you want to build
+4) Click "Run workflow" and if everything works well, a snapshot release will be published to npm
