@@ -16,6 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           submodules: 'recursive'
 
       - uses: pnpm/action-setup@v3
@@ -42,7 +43,7 @@ jobs:
 
       - name: Checkout the desired colonyNetwork tag or branch
         working-directory: ./vendor/colonyNetwork
-        run: git fetch && git checkout ${{ github.event.inputs.colonyNetworkHead }}
+        run: git checkout ${{ github.event.inputs.colonyNetworkHead }}
 
       - name: Install dependencies for colonyNetwork
         working-directory: ./vendor/colonyNetwork
