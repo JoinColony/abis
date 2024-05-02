@@ -59,8 +59,9 @@ jobs:
 
       - run: ls dist/versions/${{ github.event.inputs.colonyNetworkHead }} || ls dist/versions/next
 
-      - name: Generate version hash
+      - name: Generate version hash (of colonyNetwork)
         id: version_hash
+        working-directory: ./vendor/colonyNetwork
         run: echo "VERSION_HASH=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
 
       - name: Publish package
