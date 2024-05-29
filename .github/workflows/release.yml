@@ -13,11 +13,16 @@ jobs:
         with:
           submodules: 'recursive'
 
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8.15.8
+
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
-          cache: 'npm'
+          cache: 'pnpm'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Cache NPM dependencies
         uses: actions/cache@v3
@@ -32,13 +37,13 @@ jobs:
 
       - name: Install dependencies for colonyNetwork
         working-directory: ./vendor/colonyNetwork
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Compile colonyNetwork contracts
         working-directory: ./vendor/colonyNetwork
         run: npx hardhat compile
 
-      - run: npm run build
+      - run: pnpm run build
 
       - uses: google-github-actions/release-please-action@v4
         with:
