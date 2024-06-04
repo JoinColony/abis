@@ -70,7 +70,8 @@ jobs:
 
       - name: Publish package
         run: |
-          npm version 0.0.0-snapshot-${{ github.event.inputs.tag }}-${{ env.VERSION_HASH }} --no-git-tag-version
+          RANDOM_SUFFIX=$(openssl rand -hex 2)
+          npm version 0.0.0-snapshot-${{ github.event.inputs.tag }}-${{ env.VERSION_HASH }}-${RANDOM_SUFFIX} --no-git-tag-version
           npm publish --access public --tag snapshot
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
