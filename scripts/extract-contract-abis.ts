@@ -23,27 +23,32 @@ const ARTIFACTS_DIR_TOKEN = resolvePath(
 );
 
 const OUTPUT_DIR = resolvePath(__dirname, '../dist/versions');
-const EVENTS_DIR = resolvePath(__dirname, '../dist/events');
 
-// Simplified event ABI node
-type Event = {
+// Simplified ABI node for events or functions
+type AbiNode = {
   inputs: { name: string; type: string }[];
   name: string;
-  type: 'event';
+  type: 'event' | 'function';
 };
 
-const stringifyInputTypes = (event: Event) =>
-  JSON.stringify(event.inputs.map(({ type }) => type));
+const stringifyInputTypes = (node: AbiNode) =>
+  JSON.stringify(node.inputs.map(({ type }) => type));
+
+// Capitalize the first letter of a string
+const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 // Some newer versions of the compiler add extra stuff that prevents a deep equal comparison
-const eventsAreEqual = (eventA: Event, eventB: Event) =>
-  eventA.name === eventB.name &&
-  stringifyInputTypes(eventA) === stringifyInputTypes(eventB);
+const nodesAreEqual = (nodeA: AbiNode, nodeB: AbiNode) =>
+  nodeA.name === nodeB.name &&
+  stringifyInputTypes(nodeA) === stringifyInputTypes(nodeB);
 
-// This builds artificial ABIs that contain all events across all versions of a versioned contract. Exact duplicates are discarded
-const buildEventsAbis = async (tag: string) => {
-  const eventsDir = tag === 'next' ? resolvePath(EVENTS_DIR, 'next') : EVENTS_DIR;
-  const eventsAbis: Record<string, Event[]> = {};
+// This builds artificial ABIs that contain all nodes of a certain type across all versions of a versioned contract. Exact duplicates are discarded
+const buildJoinedAbis = async (tag: string, nodeType: string) => {
+  const targetDir =
+    tag === 'next'
+      ? resolvePath(__dirname, `../dist/${nodeType}s/next`)
+      : resolvePath(__dirname, `../dist/${nodeType}s`);
+  const nodeAbis: Record<string, AbiNode[]> = {};
   readdirSync(OUTPUT_DIR).forEach((tag: string) => {
     readdirSync(resolvePath(OUTPUT_DIR, tag)).forEach((filename) => {
       const file = resolvePath(OUTPUT_DIR, tag, filename);
@@ -51,14 +56,14 @@ const buildEventsAbis = async (tag: string) => {
       try {
         statSync(file);
         const { abi } = JSON.parse(readFileSync(file).toString());
-        if (!eventsAbis[contractName]) {
-          eventsAbis[contractName] = [];
+        if (!nodeAbis[contractName]) {
+          nodeAbis[contractName] = [];
         }
-        eventsAbis[contractName] = _.uniqWith(
-          eventsAbis[contractName].concat(
-            abi.filter(({ type }: { type: string }) => type === 'event'),
+        nodeAbis[contractName] = _.uniqWith(
+          nodeAbis[contractName].concat(
+            abi.filter(({ type }: { type: string }) => type === nodeType),
           ),
-          eventsAreEqual,
+          nodesAreEqual,
         );
       } catch(err) {
         console.error(err);
@@ -66,15 +71,15 @@ const buildEventsAbis = async (tag: string) => {
       }
     });
   });
-  Object.entries(eventsAbis).forEach(([contractName, events]) => {
-    const abi = {
+  Object.entries(nodeAbis).forEach(([contractName, abi]) => {
+    const result = {
       contractName,
-      abi: events,
+      abi,
     };
-    mkdirpSync(eventsDir);
+    mkdirpSync(targetDir);
     writeFileSync(
-      resolvePath(eventsDir, `${contractName}Events.json`),
-      JSON.stringify(abi),
+      resolvePath(targetDir, `${contractName}${capitalize(nodeType)}s.json`),
+      JSON.stringify(result),
     );
   });
 };
@@ -108,7 +113,8 @@ const extract = async () => {
     );
   });
   if (tag === LATEST_TAG || tag === 'next') {
-        buildEventsAbis(tag);
+        buildJoinedAbis(tag, 'event');
+        buildJoinedAbis(tag, 'function');
     }
 };
 
