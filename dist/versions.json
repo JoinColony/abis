@@ -119,7 +119,7 @@
             "glwss4": 2,
             "hmwss": 3,
             "imwss": 4,
-            "next": 4
+            "next": 5
         },
         "TokenSupplier": {
             "lwss": 1,
