@@ -262,6 +262,34 @@
             "inputs": [
                 {
                     "internalType": "uint256",
+                    "name": "_round",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_idx",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "_jhIntermediateValue",
+                    "type": "bytes"
+                },
+                {
+                    "internalType": "bytes32[]",
+                    "name": "_siblings",
+                    "type": "bytes32[]"
+                }
+            ],
+            "name": "confirmBinarySearchResult",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
                     "name": "_nLeaves",
                     "type": "uint256"
                 },
@@ -298,32 +326,6 @@
         {
             "inputs": [
                 {
-                    "internalType": "contract DSAuthority",
-                    "name": "authority_",
-                    "type": "address"
-                }
-            ],
-            "name": "setAuthority",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "owner_",
-                    "type": "address"
-                }
-            ],
-            "name": "setOwner",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
                     "internalType": "uint256",
                     "name": "_round",
                     "type": "uint256"
@@ -352,48 +354,28 @@
         {
             "inputs": [
                 {
-                    "internalType": "uint256",
-                    "name": "_round",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_idx",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "bytes",
-                    "name": "_jhIntermediateValue",
-                    "type": "bytes"
-                },
-                {
-                    "internalType": "bytes32[]",
-                    "name": "_siblings",
-                    "type": "bytes32[]"
+                    "internalType": "contract DSAuthority",
+                    "name": "authority_",
+                    "type": "address"
                 }
             ],
-            "name": "confirmBinarySearchResult",
+            "name": "setAuthority",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "owner_",
+                    "type": "address"
+                }
+            ],
+            "name": "setOwner",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
         }
-    ],
-    "devdoc": {
-        "kind": "dev",
-        "methods": {},
-        "version": 1
-    },
-    "userdoc": {
-        "events": {
-            "ProveUIDSuccess(uint256,uint256,bool)": {
-                "notice": "Event logged when a reputation UID is proven to be correct in a challenge"
-            },
-            "ProveValueSuccess(int256,int256,int256)": {
-                "notice": "Event logged when a reputation value is proven to be correct in a challenge"
-            }
-        },
-        "kind": "user",
-        "methods": {},
-        "version": 1
-    }
+    ]
 }

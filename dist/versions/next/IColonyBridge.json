@@ -1,0 +1,111 @@
+{
+    "contractName": "IColonyBridge",
+    "abi": [
+        {
+            "inputs": [],
+            "name": "colonyNetwork",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "evmChainId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "getColonyBridgeAddress",
+            "outputs": [
+                {
+                    "internalType": "address",
+                    "name": "",
+                    "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "evmChainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "payload",
+                    "type": "bytes"
+                }
+            ],
+            "name": "sendMessage",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_evmChainId",
+                    "type": "uint256"
+                },
+                {
+                    "internalType": "address",
+                    "name": "_colonyBridge",
+                    "type": "address"
+                }
+            ],
+            "name": "setColonyBridgeAddress",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_colonyNetwork",
+                    "type": "address"
+                }
+            ],
+            "name": "setColonyNetworkAddress",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "_evmChainId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "supportedEvmChainId",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ]
+}
