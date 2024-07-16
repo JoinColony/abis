@@ -18,7 +18,7 @@
   },
   "scripts": {
     "build": "ts-node scripts/extract-contract-abis.ts",
-    "test": "ts-node scripts/check-versions.ts",
+    "test": "node scripts/check-versions.mjs",
     "prepare": "husky install"
   },
   "devDependencies": {
