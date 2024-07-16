@@ -9,15 +9,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: googleapis/release-please-action@4
+        with:
+          release-type: node
+
       - uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.release_created }}
         with:
           submodules: 'recursive'
 
       - uses: pnpm/action-setup@v3
+        if: ${{ steps.release.outputs.release_created }}
         with:
           version: 8.15.8
 
       - name: Setup node
+        if: ${{ steps.release.outputs.release_created }}
         uses: actions/setup-node@v4
         with:
           node-version-file: '.nvmrc'
@@ -25,6 +32,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Cache NPM dependencies
+        if: ${{ steps.release.outputs.release_created }}
         uses: actions/cache@v4
         id: cache
         with:
@@ -32,19 +40,25 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: ${{ steps.release.outputs.release_created && steps.cache.outputs.cache-hit != 'true' }}
         run: pnpm install --frozen-lockfile
 
       - name: Install dependencies for colonyNetwork
+        if: ${{ steps.release.outputs.release_created }}
         working-directory: ./vendor/colonyNetwork
         run: pnpm install --frozen-lockfile
 
       - name: Compile colonyNetwork contracts
+        if: ${{ steps.release.outputs.release_created }}
         working-directory: ./vendor/colonyNetwork
         run: npx hardhat compile
 
-      - run: pnpm run build
+      - name: Run build
+        if: ${{ steps.release.outputs.release_created }}
+        run: pnpm run build
 
-      - uses: google-github-actions/release-please-action@v4
-        with:
-          release-type: node
+      - name: Publish to npm
+        if: ${{ steps.release.outputs.release_created }}
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
