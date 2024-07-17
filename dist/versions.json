@@ -51,7 +51,7 @@
             "glwss4": 8,
             "hmwss": 9,
             "imwss": 10,
-            "next": 10
+            "next": 11
         },
         "EvaluatedExpenditure": {
             "elwss": 1,
@@ -60,7 +60,7 @@
             "glwss4": 4,
             "hmwss": 5,
             "imwss": 6,
-            "next": 6
+            "next": 7
         },
         "FundingQueue": {
             "lwss": 1,
@@ -70,7 +70,7 @@
             "glwss4": 5,
             "hmwss": 6,
             "imwss": 7,
-            "next": 7
+            "next": 8
         },
         "IVotingReputation": {
             "flwss3": 6,
@@ -92,19 +92,19 @@
             "glwss4": 5,
             "hmwss": 6,
             "imwss": 7,
-            "next": 7
+            "next": 8
         },
         "ReputationBootstrapper": {
             "glwss2": 1,
             "glwss4": 2,
             "hmwss": 3,
             "imwss": 4,
-            "next": 4
+            "next": 5
         },
         "StagedExpenditure": {
             "hmwss": 1,
             "imwss": 2,
-            "next": 2
+            "next": 3
         },
         "StakedExpenditure": {
             "glwss": 1,
@@ -112,7 +112,7 @@
             "glwss4": 3,
             "hmwss": 4,
             "imwss": 5,
-            "next": 5
+            "next": 6
         },
         "StreamingPayments": {
             "glwss": 1,
@@ -129,7 +129,7 @@
             "glwss4": 5,
             "hmwss": 6,
             "imwss": 7,
-            "next": 7
+            "next": 8
         },
         "VotingReputation": {
             "clwss": 1,
@@ -145,7 +145,7 @@
             "glwss4": 4,
             "hmwss": 5,
             "imwss": 6,
-            "next": 6
+            "next": 7
         }
     }
 }
