@@ -101,7 +101,7 @@
         "StagedExpenditure": {
             "hmwss": 1,
             "imwss": 2,
-            "next": 2
+            "next": 3
         },
         "StakedExpenditure": {
             "glwss": 1,
