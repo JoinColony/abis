@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/JoinColony/abis/compare/v1.4.0...v1.4.1) (2024-07-22)
+
+
+### Bug Fixes
+
+* add missing functions abis ([ed527f7](https://github.com/JoinColony/abis/commit/ed527f7bc672ad59051b0ed0cbe05856262760a7))
+
 ## [1.4.0](https://github.com/JoinColony/abis/compare/v1.3.0...v1.4.0) (2024-07-16)
 
 
