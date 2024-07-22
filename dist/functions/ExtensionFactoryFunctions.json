@@ -1,0 +1,1 @@
+{"contractName":"ExtensionFactory","abi":[{"constant":false,"inputs":[{"name":"_colony","type":"address"}],"name":"deployExtension","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_colony","type":"address"}],"name":"removeExtension","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]}

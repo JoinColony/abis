@@ -1,0 +1,1 @@
+{"contractName":"TransferTest","abi":[{"constant":false,"inputs":[{"name":"target","type":"address"},{"name":"amount","type":"uint256"}],"name":"fireTransfer","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function"}]}

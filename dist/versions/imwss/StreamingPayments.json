@@ -3,6 +3,50 @@
     "abi": [
         {
             "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "agent",
+                    "type": "address"
+                },
+                {
+                    "indexed": true,
+                    "internalType": "uint256",
+                    "name": "streamingPaymentId",
+                    "type": "uint256"
+                }
+            ],
+            "name": "ClaimWaived",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "agent",
+                    "type": "address"
+                },
+                {
+                    "indexed": true,
+                    "internalType": "uint256",
+                    "name": "streamingPaymentId",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "endTime",
+                    "type": "uint256"
+                }
+            ],
+            "name": "EndTimeSet",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
             "inputs": [],
             "name": "ExtensionInitialised",
             "type": "event"
@@ -75,18 +119,37 @@
                 },
                 {
                     "indexed": false,
-                    "internalType": "address",
-                    "name": "token",
-                    "type": "address"
-                },
-                {
-                    "indexed": false,
                     "internalType": "uint256",
                     "name": "amount",
                     "type": "uint256"
                 }
             ],
             "name": "PaymentTokenUpdated",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "agent",
+                    "type": "address"
+                },
+                {
+                    "indexed": true,
+                    "internalType": "uint256",
+                    "name": "streamingPaymentId",
+                    "type": "uint256"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "uint256",
+                    "name": "startTime",
+                    "type": "uint256"
+                }
+            ],
+            "name": "StartTimeSet",
             "type": "event"
         },
         {
@@ -140,39 +203,6 @@
             "type": "event"
         },
         {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_fundingPermissionDomainId",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_fundingChildSkillIndex",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                },
-                {
-                    "internalType": "uint256",
-                    "name": "_amount",
-                    "type": "uint256"
-                }
-            ],
-            "name": "addToken",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
             "inputs": [],
             "name": "authority",
             "outputs": [
@@ -214,11 +244,6 @@
                     "internalType": "uint256",
                     "name": "_id",
                     "type": "uint256"
-                },
-                {
-                    "internalType": "address[]",
-                    "name": "_tokens",
-                    "type": "address[]"
                 }
             ],
             "name": "cancelAndWaive",
@@ -252,11 +277,6 @@
                     "internalType": "uint256",
                     "name": "_id",
                     "type": "uint256"
-                },
-                {
-                    "internalType": "address[]",
-                    "name": "_tokens",
-                    "type": "address[]"
                 }
             ],
             "name": "claim",
@@ -312,14 +332,14 @@
                     "type": "address"
                 },
                 {
-                    "internalType": "address[]",
-                    "name": "_tokens",
-                    "type": "address[]"
+                    "internalType": "address",
+                    "name": "_token",
+                    "type": "address"
                 },
                 {
-                    "internalType": "uint256[]",
-                    "name": "_amounts",
-                    "type": "uint256[]"
+                    "internalType": "uint256",
+                    "name": "_amount",
+                    "type": "uint256"
                 }
             ],
             "name": "create",
@@ -392,11 +412,6 @@
                     "internalType": "uint256",
                     "name": "_id",
                     "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
                 }
             ],
             "name": "getAmountEntitledFromStart",
@@ -493,42 +508,6 @@
                     "internalType": "uint256",
                     "name": "_id",
                     "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
-                }
-            ],
-            "name": "getPaymentToken",
-            "outputs": [
-                {
-                    "components": [
-                        {
-                            "internalType": "uint256",
-                            "name": "amount",
-                            "type": "uint256"
-                        },
-                        {
-                            "internalType": "uint256",
-                            "name": "pseudoAmountClaimedFromStart",
-                            "type": "uint256"
-                        }
-                    ],
-                    "internalType": "struct StreamingPayments.PaymentToken",
-                    "name": "paymentToken",
-                    "type": "tuple"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "uint256",
-                    "name": "_id",
-                    "type": "uint256"
                 }
             ],
             "name": "getStreamingPayment",
@@ -558,6 +537,21 @@
                         {
                             "internalType": "uint256",
                             "name": "interval",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "address",
+                            "name": "token",
+                            "type": "address"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "amount",
+                            "type": "uint256"
+                        },
+                        {
+                            "internalType": "uint256",
+                            "name": "pseudoAmountClaimedFromStart",
                             "type": "uint256"
                         }
                     ],
@@ -745,11 +739,6 @@
                     "internalType": "uint256",
                     "name": "_id",
                     "type": "uint256"
-                },
-                {
-                    "internalType": "address",
-                    "name": "_token",
-                    "type": "address"
                 },
                 {
                     "internalType": "uint256",
