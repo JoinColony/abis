@@ -118,12 +118,59 @@
         },
         {
             "inputs": [],
+            "name": "approveExitRecovery",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
             "name": "authority",
             "outputs": [
                 {
                     "internalType": "contract DSAuthority",
                     "name": "",
                     "type": "address"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "enterRecoveryMode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "exitRecoveryMode",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "isInRecoveryMode",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "numRecoveryRoles",
+            "outputs": [
+                {
+                    "internalType": "uint64",
+                    "name": "",
+                    "type": "uint64"
                 }
             ],
             "stateMutability": "view",
@@ -140,6 +187,19 @@
                 }
             ],
             "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_user",
+                    "type": "address"
+                }
+            ],
+            "name": "removeRecoveryRole",
+            "outputs": [],
+            "stateMutability": "nonpayable",
             "type": "function"
         },
         {
@@ -171,6 +231,19 @@
         {
             "inputs": [
                 {
+                    "internalType": "address",
+                    "name": "_user",
+                    "type": "address"
+                }
+            ],
+            "name": "setRecoveryRole",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
                     "internalType": "uint256",
                     "name": "_slot",
                     "type": "uint256"
@@ -185,137 +258,6 @@
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "isInRecoveryMode",
-            "outputs": [
-                {
-                    "internalType": "bool",
-                    "name": "",
-                    "type": "bool"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "enterRecoveryMode",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "approveExitRecovery",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "exitRecoveryMode",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_user",
-                    "type": "address"
-                }
-            ],
-            "name": "setRecoveryRole",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [
-                {
-                    "internalType": "address",
-                    "name": "_user",
-                    "type": "address"
-                }
-            ],
-            "name": "removeRecoveryRole",
-            "outputs": [],
-            "stateMutability": "nonpayable",
-            "type": "function"
-        },
-        {
-            "inputs": [],
-            "name": "numRecoveryRoles",
-            "outputs": [
-                {
-                    "internalType": "uint64",
-                    "name": "",
-                    "type": "uint64"
-                }
-            ],
-            "stateMutability": "view",
-            "type": "function"
         }
-    ],
-    "devdoc": {
-        "events": {
-            "RecoveryModeEntered(address)": {
-                "params": {
-                    "user": "The address that triggered recovery mode"
-                }
-            },
-            "RecoveryModeExitApproved(address)": {
-                "params": {
-                    "user": "The address signalling they are happy with the state"
-                }
-            },
-            "RecoveryModeExited(address)": {
-                "params": {
-                    "user": "The address that left recovery mode"
-                }
-            },
-            "RecoveryRoleSet(address,bool)": {
-                "params": {
-                    "setTo": "The boolean indicating whether the role is being granted or revoked",
-                    "user": "The address being modified"
-                }
-            },
-            "RecoveryStorageSlotSet(address,uint256,bytes32,bytes32)": {
-                "params": {
-                    "fromValue": "The value the storage slot had before this transaction",
-                    "slot": "The storage slot being modified",
-                    "toValue": "The value the storage slot has after this transaction",
-                    "user": "The address that set the storage slot"
-                }
-            }
-        },
-        "kind": "dev",
-        "methods": {},
-        "version": 1
-    },
-    "userdoc": {
-        "events": {
-            "RecoveryModeEntered(address)": {
-                "notice": "Event logged when recovery mode is triggered."
-            },
-            "RecoveryModeExitApproved(address)": {
-                "notice": "Event logged when someone with recovery mode signals they are happy with the state and wish to leave recovery mode"
-            },
-            "RecoveryModeExited(address)": {
-                "notice": "Event logged when recovery mode is left"
-            },
-            "RecoveryRoleSet(address,bool)": {
-                "notice": "Event logged when user gets/loses the recovery role."
-            },
-            "RecoveryStorageSlotSet(address,uint256,bytes32,bytes32)": {
-                "notice": "Event logged when in recovery mode a storage slot is set"
-            }
-        },
-        "kind": "user",
-        "methods": {},
-        "version": 1
-    }
+    ]
 }
