@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/JoinColony/abis/compare/v1.5.0...v1.6.0) (2024-10-16)
+
+
+### Features
+
+* add support for imwss3 ([ad8234f](https://github.com/JoinColony/abis/commit/ad8234f5e26a547bd8674ca46585b6a2108d0dbd))
+
 ## [1.5.0](https://github.com/JoinColony/abis/compare/v1.4.1...v1.5.0) (2024-09-24)
 
 
