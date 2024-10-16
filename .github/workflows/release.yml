@@ -15,13 +15,6 @@ jobs:
 
       - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
-        with:
-          submodules: 'recursive'
-
-      - uses: pnpm/action-setup@v4
-        if: ${{ steps.release.outputs.release_created }}
-        with:
-          version: 8.14.1
 
       - name: Setup node
         if: ${{ steps.release.outputs.release_created }}
@@ -30,32 +23,6 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'pnpm'
           registry-url: 'https://registry.npmjs.org'
-
-      - name: Cache NPM dependencies
-        if: ${{ steps.release.outputs.release_created }}
-        uses: actions/cache@v4
-        id: cache
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('pnpm-lock.yaml') }}
-
-      - name: Install dependencies
-        if: ${{ steps.release.outputs.release_created && steps.cache.outputs.cache-hit != 'true' }}
-        run: pnpm install --frozen-lockfile
-
-      - name: Install dependencies for colonyNetwork
-        if: ${{ steps.release.outputs.release_created }}
-        working-directory: ./vendor/colonyNetwork
-        run: pnpm install --frozen-lockfile
-
-      - name: Compile colonyNetwork contracts
-        if: ${{ steps.release.outputs.release_created }}
-        working-directory: ./vendor/colonyNetwork
-        run: npx hardhat compile
-
-      - name: Run build
-        if: ${{ steps.release.outputs.release_created }}
-        run: pnpm run build
 
       - name: Publish to npm
         if: ${{ steps.release.outputs.release_created }}
