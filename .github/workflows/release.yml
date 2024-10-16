@@ -1,18 +1,22 @@
-name: Create or add to release PR
-
 on:
   push:
-    branches: [main]
-
+    branches:
+      - main
+name: Create or add to release PR
+permissions: {}
 jobs:
-  build:
+  release-please:
+    permissions:
+      contents: write # to create release commit (google-github-actions/release-please-action)
+      pull-requests: write # to create release PR (google-github-actions/release-please-action)
+
     runs-on: ubuntu-latest
-
     steps:
-      - uses: googleapis/release-please-action@v4
+      - uses: google-github-actions/release-please-action@v4
+        id: release
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           release-type: node
-
       - uses: actions/checkout@v4
         if: ${{ steps.release.outputs.release_created }}
 
