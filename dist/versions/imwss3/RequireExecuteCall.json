@@ -1,0 +1,23 @@
+{
+    "contractName": "RequireExecuteCall",
+    "abi": [
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "target",
+                    "type": "address"
+                },
+                {
+                    "internalType": "bytes",
+                    "name": "action",
+                    "type": "bytes"
+                }
+            ],
+            "name": "executeCall",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ]
+}

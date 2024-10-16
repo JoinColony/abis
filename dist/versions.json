@@ -1,5 +1,5 @@
 {
-  "latest": "imwss2",
+  "latest": "imwss3",
   "releases": [
     "glider-rc.1",
     "glider",
@@ -20,7 +20,8 @@
     "glwss4",
     "hmwss",
     "imwss",
-    "imwss2"
+    "imwss2",
+    "imwss3"
   ],
   "releaseMap": {
     "IColony": {
@@ -40,7 +41,8 @@
       "hmwss": 14,
       "imwss": 15,
       "imwss2": 16,
-      "next": 17
+      "imwss3": 17,
+      "next": 18
     },
     "CoinMachine": {
       "clwss": 1,
@@ -54,7 +56,8 @@
       "hmwss": 9,
       "imwss": 10,
       "imwss2": 11,
-      "next": 12
+      "imwss3": 12,
+      "next": 13
     },
     "EvaluatedExpenditure": {
       "elwss": 1,
@@ -64,7 +67,8 @@
       "hmwss": 5,
       "imwss": 6,
       "imwss2": 7,
-      "next": 8
+      "imwss3": 8,
+      "next": 9
     },
     "FundingQueue": {
       "lwss": 1,
@@ -75,7 +79,8 @@
       "hmwss": 6,
       "imwss": 7,
       "imwss2": 8,
-      "next": 9
+      "imwss3": 9,
+      "next": 10
     },
     "IVotingReputation": {
       "flwss3": 6,
@@ -85,11 +90,13 @@
       "hmwss": 10,
       "imwss": 11,
       "imwss2": 12,
-      "next": 13
+      "imwss3": 13,
+      "next": 14
     },
     "MultisigPermissions": {
       "imwss2": 1,
-      "next": 2
+      "imwss3": 2,
+      "next": 3
     },
     "OneTxPayment": {
       "clwss": 1,
@@ -100,7 +107,8 @@
       "hmwss": 6,
       "imwss": 7,
       "imwss2": 8,
-      "next": 9
+      "imwss3": 9,
+      "next": 10
     },
     "ReputationBootstrapper": {
       "glwss2": 1,
@@ -108,13 +116,15 @@
       "hmwss": 3,
       "imwss": 4,
       "imwss2": 5,
-      "next": 6
+      "imwss3": 6,
+      "next": 7
     },
     "StagedExpenditure": {
       "hmwss": 1,
       "imwss": 2,
       "imwss2": 3,
-      "next": 4
+      "imwss3": 4,
+      "next": 5
     },
     "StakedExpenditure": {
       "glwss": 1,
@@ -123,7 +133,8 @@
       "hmwss": 4,
       "imwss": 5,
       "imwss2": 6,
-      "next": 7
+      "imwss3": 7,
+      "next": 8
     },
     "StreamingPayments": {
       "glwss": 1,
@@ -131,7 +142,8 @@
       "hmwss": 3,
       "imwss": 4,
       "imwss2": 5,
-      "next": 6
+      "imwss3": 6,
+      "next": 7
     },
     "TokenSupplier": {
       "lwss": 1,
@@ -142,7 +154,8 @@
       "hmwss": 6,
       "imwss": 7,
       "imwss2": 8,
-      "next": 9
+      "imwss3": 9,
+      "next": 10
     },
     "VotingReputation": {
       "clwss": 1,
@@ -159,7 +172,8 @@
       "hmwss": 5,
       "imwss": 6,
       "imwss2": 7,
-      "next": 8
+      "imwss3": 8,
+      "next": 9
     }
   }
 }
