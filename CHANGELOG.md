@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/JoinColony/abis/compare/v1.6.0...v1.7.0) (2024-12-05)
+
+
+### Features
+
+* update imwss3 tag changes ([27327ac](https://github.com/JoinColony/abis/commit/27327acd286256511491b535e643a92e3aaa88d5))
+
 ## [1.6.0](https://github.com/JoinColony/abis/compare/v1.5.0...v1.6.0) (2024-10-16)
 
 
