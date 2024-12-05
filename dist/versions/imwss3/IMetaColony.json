@@ -63,6 +63,12 @@
                 {
                     "indexed": false,
                     "internalType": "address",
+                    "name": "agent",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "address",
                     "name": "target",
                     "type": "address"
                 },
@@ -1626,8 +1632,8 @@
             "name": "authority",
             "outputs": [
                 {
-                    "internalType": "address",
-                    "name": "colonyAuthority",
+                    "internalType": "contract DSAuthority",
+                    "name": "authority",
                     "type": "address"
                 }
             ],
@@ -2075,7 +2081,7 @@
             "outputs": [
                 {
                     "internalType": "bytes",
-                    "name": "",
+                    "name": "returnData",
                     "type": "bytes"
                 }
             ],
@@ -3469,7 +3475,7 @@
             "outputs": [
                 {
                     "internalType": "address",
-                    "name": "colonyOwner",
+                    "name": "owner",
                     "type": "address"
                 }
             ],
@@ -3602,6 +3608,19 @@
                 }
             ],
             "name": "setArchitectureRole",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "contract DSAuthority",
+                    "name": "authority_",
+                    "type": "address"
+                }
+            ],
+            "name": "setAuthority",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"
@@ -4018,6 +4037,19 @@
                 }
             ],
             "name": "setNetworkFeeInverse",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "owner_",
+                    "type": "address"
+                }
+            ],
+            "name": "setOwner",
             "outputs": [],
             "stateMutability": "nonpayable",
             "type": "function"

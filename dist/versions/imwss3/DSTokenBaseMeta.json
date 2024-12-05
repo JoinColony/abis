@@ -32,7 +32,7 @@
                 {
                     "indexed": false,
                     "internalType": "address",
-                    "name": "user",
+                    "name": "userAddress",
                     "type": "address"
                 },
                 {
@@ -44,7 +44,7 @@
                 {
                     "indexed": false,
                     "internalType": "bytes",
-                    "name": "functionSignature",
+                    "name": "payload",
                     "type": "bytes"
                 }
             ],
@@ -175,7 +175,7 @@
             "outputs": [
                 {
                     "internalType": "bytes",
-                    "name": "",
+                    "name": "returnData",
                     "type": "bytes"
                 }
             ],

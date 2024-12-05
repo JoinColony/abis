@@ -1350,7 +1350,7 @@
             "outputs": [
                 {
                     "internalType": "bytes",
-                    "name": "",
+                    "name": "returnData",
                     "type": "bytes"
                 }
             ],
