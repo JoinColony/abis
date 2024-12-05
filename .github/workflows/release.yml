@@ -28,6 +28,10 @@ jobs:
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: Install dependencies
+        if: ${{ steps.release.outputs.release_created }}
+        run: pnpm install --frozen-lockfile
+
       - name: Publish to npm
         if: ${{ steps.release.outputs.release_created }}
         run: npm publish
