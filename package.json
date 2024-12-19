@@ -7,6 +7,7 @@
     "README.md"
   ],
   "exports": {
+    "./utils": "./dist/utils.js",
     "./*": "./dist/*.json"
   },
   "main": "./dist/versions.json",
@@ -17,9 +18,12 @@
     "npm": "^8 || ^9 || ^10"
   },
   "scripts": {
-    "build": "ts-node scripts/extract-contract-abis.ts",
+    "build": "ts-node scripts/extract-contract-abis.ts && tsc lib/utils.ts --declaration --outDir dist",
     "test": "node scripts/check-versions.mjs",
     "prepare": "husky install"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
@@ -39,7 +43,6 @@
     "eslint-plugin-prettier": "^4.2.1",
     "fast-glob": "^3.2.11",
     "husky": "^8.0.3",
-    "lodash": "^4.17.21",
     "mkdirp": "^1.0.4",
     "prettier": "^2.8.0",
     "rimraf": "^3.0.2",
