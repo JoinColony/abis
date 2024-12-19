@@ -8,9 +8,9 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "strict": true,
-    "target": "es6",
-    "types": ["node", "jest"],
-    "rootDir": "./"
+    "target": "es2022",
+    "rootDir": "./",
+    "skipLibCheck": true
   },
   "include": ["scripts/**/*"],
   "exclude": ["node_modules"]

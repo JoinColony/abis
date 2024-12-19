@@ -8,6 +8,8 @@ import fg from 'fast-glob';
 import { sync as mkdirpSync } from 'mkdirp';
 import _ from 'lodash';
 
+import { type AbiNode, type NodeType, joinAbis } from '../lib/utils';
+
 import { latest as LATEST_TAG } from '../dist/versions.json';
 
 const DEPLOY_CONTRACTS = ['MetaTxToken', 'TokenAuthority'];
@@ -24,26 +26,11 @@ const ARTIFACTS_DIR_TOKEN = resolvePath(
 
 const OUTPUT_DIR = resolvePath(__dirname, '../dist/versions');
 
-// Simplified ABI node for events or functions
-type AbiNode = {
-  inputs: { name: string; type: string }[];
-  name: string;
-  type: 'event' | 'function';
-};
-
-const stringifyInputTypes = (node: AbiNode) =>
-  JSON.stringify(node.inputs.map(({ type }) => type));
-
 // Capitalize the first letter of a string
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
-// Some newer versions of the compiler add extra stuff that prevents a deep equal comparison
-const nodesAreEqual = (nodeA: AbiNode, nodeB: AbiNode) =>
-  nodeA.name === nodeB.name &&
-  stringifyInputTypes(nodeA) === stringifyInputTypes(nodeB);
-
 // This builds artificial ABIs that contain all nodes of a certain type across all versions of a versioned contract. Exact duplicates are discarded
-const buildJoinedAbis = async (tag: string, nodeType: string) => {
+const buildJoinedAbis = async (tag: string, nodeType: NodeType) => {
   const targetDir =
     tag === 'next'
       ? resolvePath(__dirname, `../dist/${nodeType}s/next`)
@@ -59,13 +46,8 @@ const buildJoinedAbis = async (tag: string, nodeType: string) => {
         if (!nodeAbis[contractName]) {
           nodeAbis[contractName] = [];
         }
-        nodeAbis[contractName] = _.uniqWith(
-          nodeAbis[contractName].concat(
-            abi.filter(({ type }: { type: string }) => type === nodeType),
-          ),
-          nodesAreEqual,
-        );
-      } catch(err) {
+        nodeAbis[contractName] = joinAbis(nodeAbis[contractName], abi, nodeType);
+      } catch (err) {
         console.error(err);
         // ignore
       }
