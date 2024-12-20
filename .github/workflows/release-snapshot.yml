@@ -57,7 +57,9 @@ jobs:
         working-directory: ./vendor/colonyNetwork
         run: npx hardhat compile
 
-      - run: pnpm run build --t=${{ github.event.inputs.tag }}
+      - run: pnpm run extract --t=${{ github.event.inputs.tag }}
+
+      - run: pnpm build
 
       - run: pnpm test
 
