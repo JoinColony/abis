@@ -18,7 +18,8 @@
     "npm": "^10"
   },
   "scripts": {
-    "build": "ts-node scripts/extract-contract-abis.ts && tsc lib/utils.ts --skipLibCheck --declaration --outDir dist",
+    "build": "tsc lib/utils.ts --skipLibCheck --declaration --outDir dist",
+    "extract": "ts-node scripts/extract-contract-abis.ts",
     "test": "node scripts/check-versions.mjs",
     "prepare": "husky install"
   },
