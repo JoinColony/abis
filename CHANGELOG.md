@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/JoinColony/abis/compare/v1.7.0...v1.8.0) (2024-12-20)
+
+
+### Features
+
+* expose utils module ([b2df49d](https://github.com/JoinColony/abis/commit/b2df49d64586d18a47fdaa799b018147a6ab374d))
+
 ## [1.7.0](https://github.com/JoinColony/abis/compare/v1.6.0...v1.7.0) (2024-12-05)
 
 
