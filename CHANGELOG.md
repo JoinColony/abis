@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/JoinColony/abis/compare/v1.8.0...v1.8.1) (2024-12-20)
+
+
+### Bug Fixes
+
+* actually build release on ci ([74f411c](https://github.com/JoinColony/abis/commit/74f411cf901fc187adbcdd663a553661b004e8c0))
+
 ## [1.8.0](https://github.com/JoinColony/abis/compare/v1.7.0...v1.8.0) (2024-12-20)
 
 
