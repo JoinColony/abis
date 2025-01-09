@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.8.2](https://github.com/JoinColony/abis/compare/v1.8.1...v1.8.2) (2025-01-09)
+
+
+### Bug Fixes
+
+* naming of getMetatransactionNonce `nonce` value in imwss ([3f684cc](https://github.com/JoinColony/abis/commit/3f684cc43ca7c6d80042586c5704d6255218206c))
+* naming of getMetatransactionNonce `nonce` value in imwss2 ([6e5a4aa](https://github.com/JoinColony/abis/commit/6e5a4aadb7918c3412fd6a43756c88b123b663ef))
+* naming of getMetatransactionNonce `nonce` value in imwss3 ([2429fed](https://github.com/JoinColony/abis/commit/2429fedc473b5c8fac1af4a5e186305b7955d167))
+
 ## [1.8.1](https://github.com/JoinColony/abis/compare/v1.8.0...v1.8.1) (2024-12-20)
 
 
