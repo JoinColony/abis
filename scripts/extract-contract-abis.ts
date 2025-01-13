@@ -8,7 +8,7 @@ import fg from 'fast-glob';
 import { sync as mkdirpSync } from 'mkdirp';
 import _ from 'lodash';
 
-import { type AbiNode, type NodeType, joinAbis } from '../lib/utils';
+import { type AbiNode, type MergeType, joinAbis } from '../lib/utils';
 
 import { latest as LATEST_TAG } from '../dist/versions.json';
 
@@ -30,11 +30,11 @@ const OUTPUT_DIR = resolvePath(__dirname, '../dist/versions');
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 // This builds artificial ABIs that contain all nodes of a certain type across all versions of a versioned contract. Exact duplicates are discarded
-const buildJoinedAbis = async (tag: string, nodeType: NodeType) => {
+const buildJoinedAbis = async (tag: string, mergeType: MergeType) => {
   const targetDir =
     tag === 'next'
-      ? resolvePath(__dirname, `../dist/${nodeType}s/next`)
-      : resolvePath(__dirname, `../dist/${nodeType}s`);
+      ? resolvePath(__dirname, `../dist/${mergeType}/next`)
+      : resolvePath(__dirname, `../dist/${mergeType}`);
   const nodeAbis: Record<string, AbiNode[]> = {};
   readdirSync(OUTPUT_DIR).forEach((tag: string) => {
     readdirSync(resolvePath(OUTPUT_DIR, tag)).forEach((filename) => {
@@ -46,7 +46,7 @@ const buildJoinedAbis = async (tag: string, nodeType: NodeType) => {
         if (!nodeAbis[contractName]) {
           nodeAbis[contractName] = [];
         }
-        nodeAbis[contractName] = joinAbis(nodeAbis[contractName], abi, nodeType);
+        nodeAbis[contractName] = joinAbis(nodeAbis[contractName], abi, mergeType);
       } catch (err) {
         console.error(err);
         // ignore
@@ -60,7 +60,7 @@ const buildJoinedAbis = async (tag: string, nodeType: NodeType) => {
     };
     mkdirpSync(targetDir);
     writeFileSync(
-      resolvePath(targetDir, `${contractName}${capitalize(nodeType)}s.json`),
+      resolvePath(targetDir, `${contractName}${capitalize(mergeType)}.json`),
       JSON.stringify(result),
     );
   });
