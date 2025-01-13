@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.3](https://github.com/JoinColony/abis/compare/v1.8.2...v1.8.3) (2025-01-13)
+
+
+### Bug Fixes
+
+* rename NodeType to MergeType, add `s` ([d60b4ad](https://github.com/JoinColony/abis/commit/d60b4adf630e2774d6cbc05d07b89d743ec2932f))
+
 ## [1.8.2](https://github.com/JoinColony/abis/compare/v1.8.1...v1.8.2) (2025-01-09)
 
 
