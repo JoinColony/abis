@@ -30,7 +30,7 @@ jobs:
 
       - uses: pnpm/action-setup@v4
         with:
-          version: 8.14.1
+          version: 10.0.0
 
       - name: Install dependencies
         if: ${{ steps.release.outputs.release_created }}
