@@ -1,17 +1,22 @@
 {
   "compilerOptions": {
-    "lib": ["es2018"],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noEmit": true,
+    "lib": [
+      "es2022"
+    ],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "noImplicitAny": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "strict": true,
     "target": "es2022",
-    "rootDir": "./",
+    "types": [
+      "node"
+    ],
+    "rootDir": "./src",
     "skipLibCheck": true
   },
-  "include": ["scripts/**/*"],
-  "exclude": ["node_modules"]
+  "include": [
+    "./src"
+  ]
 }

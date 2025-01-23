@@ -5,26 +5,29 @@ import rimraf from 'rimraf';
 import yargs from 'yargs';
 import { hideBin } from 'yargs/helpers';
 import fg from 'fast-glob';
-import { sync as mkdirpSync } from 'mkdirp';
-import _ from 'lodash';
+import mkdirp from 'mkdirp';
 
-import { type AbiNode, type MergeType, joinAbis } from '../lib/utils';
+import { type AbiNode, type MergeType, joinAbis } from '../src/utils.js';
 
-import { latest as LATEST_TAG } from '../dist/versions.json';
+import { versions } from '../src/index.js';
+
+const { latest: LATEST_TAG } = versions;
 
 const DEPLOY_CONTRACTS = ['MetaTxToken', 'TokenAuthority'];
 
+const { dirname } = import.meta;
+
 const ARTIFACTS_DIR = resolvePath(
-  __dirname,
+  dirname,
   '../vendor/colonyNetwork/artifacts/contracts',
 );
 
 const ARTIFACTS_DIR_TOKEN = resolvePath(
-  __dirname,
+  dirname,
   '../vendor/colonyNetwork/artifacts/colonyToken',
 );
 
-const OUTPUT_DIR = resolvePath(__dirname, '../dist/versions');
+const OUTPUT_DIR = resolvePath(dirname, '../dist/versions');
 
 // Capitalize the first letter of a string
 const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
@@ -33,12 +36,12 @@ const capitalize = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 const buildJoinedAbis = async (tag: string, mergeType: MergeType) => {
   const targetDir =
     tag === 'next'
-      ? resolvePath(__dirname, `../dist/${mergeType}/next`)
-      : resolvePath(__dirname, `../dist/${mergeType}`);
+      ? resolvePath(dirname, `../dist/${mergeType}/next`)
+      : resolvePath(dirname, `../dist/${mergeType}`);
   const nodeAbis: Record<string, AbiNode[]> = {};
-  readdirSync(OUTPUT_DIR).forEach((tag: string) => {
-    readdirSync(resolvePath(OUTPUT_DIR, tag)).forEach((filename) => {
-      const file = resolvePath(OUTPUT_DIR, tag, filename);
+  readdirSync(OUTPUT_DIR).forEach((tagName: string) => {
+    readdirSync(resolvePath(OUTPUT_DIR, tagName)).forEach((filename) => {
+      const file = resolvePath(OUTPUT_DIR, tagName, filename);
       const contractName = basename(file, '.json');
       try {
         statSync(file);
@@ -46,7 +49,11 @@ const buildJoinedAbis = async (tag: string, mergeType: MergeType) => {
         if (!nodeAbis[contractName]) {
           nodeAbis[contractName] = [];
         }
-        nodeAbis[contractName] = joinAbis(nodeAbis[contractName], abi, mergeType);
+        nodeAbis[contractName] = joinAbis(
+          nodeAbis[contractName],
+          abi,
+          mergeType,
+        );
       } catch (err) {
         console.error(err);
         // ignore
@@ -58,7 +65,7 @@ const buildJoinedAbis = async (tag: string, mergeType: MergeType) => {
       contractName,
       abi,
     };
-    mkdirpSync(targetDir);
+    mkdirp.sync(targetDir);
     writeFileSync(
       resolvePath(targetDir, `${contractName}${capitalize(mergeType)}.json`),
       JSON.stringify(result),
@@ -74,13 +81,14 @@ const extract = async () => {
   const args = await argv;
   const { tag } = args;
 
-
   const outputDir = resolvePath(OUTPUT_DIR, tag);
   await promisify(rimraf)(outputDir);
-  mkdirpSync(outputDir);
+  mkdirp.sync(outputDir);
 
   const inputArtifacts = await fg(`${ARTIFACTS_DIR}/**/!(*.dbg).json`);
-  const inputTokenArtifacts = await fg(`${ARTIFACTS_DIR_TOKEN}/**/!(*.dbg).json`);
+  const inputTokenArtifacts = await fg(
+    `${ARTIFACTS_DIR_TOKEN}/**/!(*.dbg).json`,
+  );
   const inputFiles = inputArtifacts.concat(inputTokenArtifacts);
   inputFiles.forEach((file) => {
     const { abi, contractName, bytecode, devdoc, userdoc } = JSON.parse(
@@ -95,9 +103,9 @@ const extract = async () => {
     );
   });
   if (tag === LATEST_TAG || tag === 'next') {
-        buildJoinedAbis(tag, 'event');
-        buildJoinedAbis(tag, 'function');
-    }
+    buildJoinedAbis(tag, 'events');
+    buildJoinedAbis(tag, 'functions');
+  }
 };
 
 extract();

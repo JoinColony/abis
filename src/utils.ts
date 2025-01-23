@@ -1,5 +1,5 @@
-import { uniqWith } from 'lodash';
-import { AbiEvent, AbiFunction, type Abi } from 'abitype';
+import _ from 'lodash';
+import { type AbiEvent, type AbiFunction, type Abi } from 'abitype';
 
 export type MergeType = 'events' | 'functions';
 
@@ -14,11 +14,12 @@ const nodesAreEqual = (nodeA: AbiNode, nodeB: AbiNode) =>
   stringifyInputTypes(nodeA) === stringifyInputTypes(nodeB);
 
 export const joinAbis = (abiA: Abi, abiB: Abi, nodeType: MergeType) => {
-  return uniqWith(
+  return _.uniqWith(
     (abiA as AbiNode[]).concat(
-      (abiB as AbiNode[]).filter(({ type }: { type: string }) => type === nodeType),
+      (abiB as AbiNode[]).filter(
+        ({ type }: { type: string }) => type === nodeType,
+      ),
     ),
     nodesAreEqual,
   );
 };
-
