@@ -17,10 +17,15 @@ jobs:
           node-version-file: '.nvmrc'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install commitlint
-        run: |
-          npm install @commitlint/config-conventional
-          npm install commitlint
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.0.0
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint files
+        run: pnpm run lint
 
       - name: Validate PR commits with commitlint
         if: github.event_name == 'pull_request'
