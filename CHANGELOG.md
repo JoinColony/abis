@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://github.com/JoinColony/abis/compare/v1.8.3...v2.0.0) (2025-01-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* move to js versions file
+
+### Features
+
+* move to js versions file ([9ea949c](https://github.com/JoinColony/abis/commit/9ea949c8b08484f1dea3fd0166daf2cfaa35edfe))
+* update pnpm to v10 ([aca1998](https://github.com/JoinColony/abis/commit/aca1998c044884fddeb9111c0349613a9aef1036))
+
 ## [1.8.3](https://github.com/JoinColony/abis/compare/v1.8.2...v1.8.3) (2025-01-13)
 
 
